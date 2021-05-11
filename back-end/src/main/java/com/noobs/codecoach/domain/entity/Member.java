@@ -31,6 +31,7 @@ public class Member {
     private String password;
 
     public Member(String firstName, String lastName, String email, String password) {
+        validateInput(firstName, lastName, email, password);
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
