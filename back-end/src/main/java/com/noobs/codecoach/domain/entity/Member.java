@@ -1,6 +1,7 @@
 package com.noobs.codecoach.domain.entity;
 
 import com.noobs.codecoach.infrastructure.utils.MailAddressValidator;
+import com.noobs.codecoach.infrastructure.utils.PasswordValidator;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -40,7 +41,7 @@ public class Member {
 
     private void validateInput(String firstname, String lastname, String email, String password) {
         MailAddressValidator.assertValidEmailAdress(email);
-
+        PasswordValidator.assertValidPassword(password);
         if (firstname == null) {
             throw new IllegalArgumentException("Wrong argument provided, firstname is null");
         }
