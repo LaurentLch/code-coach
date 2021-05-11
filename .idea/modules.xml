@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Code-Coach.iml" filepath="$PROJECT_DIR$/.idea/Code-Coach.iml" />
-      <module fileurl="file://$PROJECT_DIR$/back-end/code-coach.iml" filepath="$PROJECT_DIR$/back-end/code-coach.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/code-coach.iml" filepath="$PROJECT_DIR$/.idea/code-coach.iml" />
     </modules>
   </component>
 </project>
