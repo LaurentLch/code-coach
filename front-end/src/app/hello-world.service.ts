@@ -11,7 +11,7 @@ export class HelloWorldService {
   private backendUrl: string;
 
   constructor(private http: HttpClient) {
-    this.backendUrl = `${environment.backend}/hello`;
+    this.backendUrl = `${environment.backendUrl}/hello`;
   }
 
   getHelloWorld(): Observable<any> {
