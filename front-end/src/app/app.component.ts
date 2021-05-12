@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HelloWorldService} from "./hello-world.service";
+import {HelloWorldService} from './hello-world.service';
 
 @Component({
   selector: 'app-root',
@@ -7,13 +7,17 @@ import {HelloWorldService} from "./hello-world.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Not Yet Loaded';
+  title = 'load';
 
   constructor(private helloWorldService: HelloWorldService) {
   }
 
-  ngOnInit(): void {
-    this.title = this.helloWorldService.getHelloWorld();
+  // tslint:disable-next-line:typedef
+  ngOnInit() {
+    this.title = this.getTitle();
+  }
 
+  getTitle(): any {
+    this.helloWorldService.getHelloWorld().subscribe(title => this.title = title);
   }
 }

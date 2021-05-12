@@ -6,15 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+@CrossOrigin(value = "http://localhost:4200")
 @RestController
 @RequestMapping (path = "/hello")
 public class HelloWorldController {
 
-    @CrossOrigin
+
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public String returnHelloWorld(){
-
         return "hello, world!";
     }
 
