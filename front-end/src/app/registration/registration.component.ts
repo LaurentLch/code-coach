@@ -1,6 +1,10 @@
+// @ts-ignore
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder} from '@angular/forms';
+// @ts-ignore
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {MemberService} from '../service/member.service';
+
+// @ts-ignore
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -8,16 +12,21 @@ import {MemberService} from '../service/member.service';
 })
 export class RegistrationComponent implements OnInit {
   createRegistrationForm = this.formBuilder.group({
-    firstname: '',
-    lastname: '',
+    firstName: '',
+    lastName: '',
     email: '',
     password: ''
   });
-  constructor(private memberService: MemberService, private formBuilder: FormBuilder) {}
-  onSubmit(): void{
-    this.memberService.addMember(this.createRegistrationForm.value).subscribe(data => {
+
+  constructor(private memberService: MemberService, private formBuilder: FormBuilder) {
+
+  }
+
+  // tslint:disable-next-line:typedef
+  onSubmit() {
+    this.memberService.addMember(this.createRegistrationForm.value).subscribe( data => {
       data = this.createRegistrationForm;
-      alert('Registration successful');
+      console.log('Your registration has been accepted', data);
       this.createRegistrationForm.reset();
     });
   }
