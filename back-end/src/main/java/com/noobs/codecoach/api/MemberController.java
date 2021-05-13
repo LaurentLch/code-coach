@@ -6,6 +6,7 @@ import com.noobs.codecoach.service.dto.response.MemberDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(value = "http://localhost:4200")
 @RestController
 @RequestMapping(path = "/members", produces = "application/json")
 public class MemberController {
@@ -18,7 +19,7 @@ public class MemberController {
     }
 
     @PostMapping(consumes = "application/json")
-    public MemberDTO createMember(@RequestBody CreateMemberDTO createMemberDTO) {
-        return memberService.createMember(createMemberDTO);
+    public void createMember(@RequestBody CreateMemberDTO createMemberDTO) {
+         memberService.createMember(createMemberDTO);
     }
 }
