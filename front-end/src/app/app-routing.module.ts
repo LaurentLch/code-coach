@@ -2,8 +2,11 @@
 import { NgModule } from '@angular/core';
 // @ts-ignore
 import { RouterModule, Routes } from '@angular/router';
+import {RegistrationComponent} from './registration/registration.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'registration', component: RegistrationComponent }
+];
 
 // @ts-ignore
 @NgModule({
