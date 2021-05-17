@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 import {environment} from '../../environments/environment';
 // @ts-ignore
 import {HttpClient} from '@angular/common/http';
-import {Member} from '../model/Member';
+import {Member} from '../model/member';
 
 // @ts-ignore
 @Injectable({
   providedIn: 'root'
 })
 export class MemberService {
-  private backendUrl: string;
+  backendUrl: string;
   constructor(private http: HttpClient) {
     this.backendUrl = `${environment.backendUrl}/members`;
   }

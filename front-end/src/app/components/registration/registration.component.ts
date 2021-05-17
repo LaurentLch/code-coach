@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 // @ts-ignore
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {MemberService} from '../service/member.service';
+import {MemberService} from '../../service/member.service';
 
 // @ts-ignore
 @Component({

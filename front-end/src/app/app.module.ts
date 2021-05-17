@@ -7,13 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 // @ts-ignore
 import {HttpClientModule} from '@angular/common/http';
-import { RegistrationComponent } from './registration/registration.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 // @ts-ignore
 import {ReactiveFormsModule} from '@angular/forms';
 // @ts-ignore
 import { FormsModule } from '@angular/forms';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 // @ts-ignore
 @NgModule({
