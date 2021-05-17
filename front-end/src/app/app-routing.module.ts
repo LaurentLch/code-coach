@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 // @ts-ignore
 import { RouterModule, Routes } from '@angular/router';
-import {RegistrationComponent} from './registration/registration.component';
+import {RegistrationComponent} from './components/registration/registration.component';
 
 const routes: Routes = [
   { path: 'registration', component: RegistrationComponent }
