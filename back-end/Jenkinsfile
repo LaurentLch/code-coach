@@ -5,7 +5,7 @@ pipeline {
             maven 'Maven'
         }
     
-    def pomfilepath= back-end/pom.xml
+    def pomfilepath= 'back-end/pom.xml'
     
     stages {
         stage('Build') {
