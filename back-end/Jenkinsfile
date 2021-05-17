@@ -6,25 +6,11 @@ pipeline {
         }
 
     stages {
-
-        stage('Config') {
-            steps {
-                sh 'sed -ri \'s/frederik/noobs-test/g\' ./src/main/resources/application.properties'
-            }
-        }
-
         stage('Build') {
-            steps {
-                sh 'mvn clean test-compile'
-            }
-        }
-
-        stage('Test') {
             steps {
                 sh 'mvn clean test'
             }
         }
-
     }
 
     post {
