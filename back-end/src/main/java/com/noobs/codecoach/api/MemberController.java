@@ -23,12 +23,12 @@ public class MemberController {
 
     @PostMapping(consumes = "application/json")
     public void createMember(@RequestBody CreateMemberDTO createMemberDTO) {
-         memberService.createMember(createMemberDTO);
+        memberService.createMember(createMemberDTO);
     }
 
-    @GetMapping(path="/{id}", produces = "application/json")
+    @GetMapping(path = "/{id}", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public GetMemberProfileDTO getMemberProfile(@PathVariable int id){
+    public GetMemberProfileDTO getMemberProfile(@PathVariable int id) throws IllegalArgumentException {
         return memberService.getMemberById(id);
 
     }

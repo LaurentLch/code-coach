@@ -25,6 +25,9 @@ public class MemberService {
     }
 
     public GetMemberProfileDTO getMemberById(int id) {
+        if (memberRepository.getMemberById(id) == null) {
+            throw new IllegalArgumentException("Id is invalid");
+        }
         return memberMapper.toGetMemberProfileDTO(memberRepository.getMemberById(id));
     }
 

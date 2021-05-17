@@ -42,4 +42,12 @@ class MemberRepositoryTest {
         assertThat(memberRepository.getMemberByEmail("MAD2@gmail.com").getFirstName()).isEqualTo("FNtest2");
     }
 
+    @Test
+    void findMemberById_ifMemberInDatabase_thenReturnId() {
+        Member member3 = new Member("FNtest3", "LNtest3", "MAD3@gmail.com", "A3azerty");
+        memberRepository.save(member3);
+        assertThat(memberRepository.getMemberById(member3.getId()).getId()).isEqualTo(member3.getId());
+    }
+
+
 }
