@@ -5,12 +5,12 @@ pipeline {
             maven 'Maven'
         }
     
-    def pomfilepath= 'back-end/pom.xml'
-    
+        
     stages {
         stage('Build') {
             steps {
                 sh 'mvn clean test'
+                def pomfilepath= 'back-end/pom.xml'
             }
         }
     }
