@@ -4,7 +4,9 @@ pipeline {
             jdk 'jdk-15'
             maven 'Maven'
         }
-
+    
+    def pomfilepath= back-end/pom.xml
+    
     stages {
         stage('Build') {
             steps {
