@@ -25,7 +25,8 @@ public class UserMapper {
                 .setFirstName(user.getFirstName())
                 .setLastName(user.getLastName())
                 .setEmail(user.getEmail())
-                .setPassword(user.getPassword());
+                .setPassword(user.getPassword())
+                .setRole(user.getRole());
     }
 
     public GetUserProfileDTO toGetUserProfileDTO(User user) {
@@ -33,7 +34,7 @@ public class UserMapper {
                 .setFirstName(user.getFirstName())
                 .setLastName(user.getLastName())
                 .setEmail(user.getEmail())
-                .setRole(Role.COACHEE);  //<- to fis as enum
+                .setRole(user.getRole());
                 //.setTrainingClass("None");  <-To fix as list
     }
 }

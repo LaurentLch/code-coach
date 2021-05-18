@@ -56,4 +56,9 @@ public class UserDTO {
         this.password = password;
         return this;
     }
+
+    public UserDTO setRole(Role role) {
+        this.role = role;
+        return this;
+    }
 }

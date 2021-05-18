@@ -39,6 +39,7 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.role = Role.COACHEE;
     }
 
     private void validateInput(String firstname, String lastname, String email, String password) {
@@ -66,6 +67,10 @@ public class User {
     }
 
 
+    public User setRole(Role role) {
+        this.role = role;
+        return this;
+    }
 
     public String getFirstName() {
         return firstName;
