@@ -10,9 +10,13 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ProfileInformationComponent implements OnInit {
 user: User | undefined;
+// tslint:disable-next-line:ban-types
+email: String;
 
 
-  constructor(private userService: UserService, private route: ActivatedRoute) { }
+  constructor(private userService: UserService, private route: ActivatedRoute) {
+    this.email = 'adminyoucoach@gmail.com';
+  }
 
   ngOnInit(): void {
     this.getUser();
