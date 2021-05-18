@@ -15,6 +15,7 @@ user: User | undefined;
   constructor(private userService: UserService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getUser();
   }
 
   getUser(): void {
