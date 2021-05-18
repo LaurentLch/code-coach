@@ -24,4 +24,9 @@ export class UserService {
   }
 
 
+  // tslint:disable-next-line:typedef
+  becomeACoach(id: number) {
+    const url = `${this.backendUrl}/${id}`;
+    return this.http.put(url, id);
+  }
 }
