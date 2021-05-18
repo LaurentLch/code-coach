@@ -8,9 +8,9 @@ public class CreateUserDTO {
     private String lastName;
     private String email;
     private String password;
-    private Role role=Role.COACHEE;
+    private String role=Role.COACHEE.getRoleName();
 
-    public CreateUserDTO setRole(Role role) {
+    public CreateUserDTO setRole(String role) {
         this.role = role;
         return this;
     }

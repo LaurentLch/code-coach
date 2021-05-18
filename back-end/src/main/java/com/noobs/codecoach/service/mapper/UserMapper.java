@@ -1,7 +1,6 @@
 package com.noobs.codecoach.service.mapper;
 
 import com.noobs.codecoach.domain.entity.User;
-import com.noobs.codecoach.domain.entity.Role;
 import com.noobs.codecoach.service.dto.request.CreateUserDTO;
 import com.noobs.codecoach.service.dto.response.GetUserProfileDTO;
 import com.noobs.codecoach.service.dto.response.UserDTO;

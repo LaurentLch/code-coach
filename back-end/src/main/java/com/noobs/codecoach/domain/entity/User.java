@@ -31,7 +31,7 @@ public class User {
     private String password;
 
     @Column(name = "role")
-    private Role role;
+    private String role;
 
     public User(String firstName, String lastName, String email, String password) {
         validateInput(firstName, lastName, email, password);
@@ -39,7 +39,7 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.role = Role.COACHEE;
+        this.role = Role.COACHEE.getRoleName();
     }
 
     private void validateInput(String firstname, String lastname, String email, String password) {
@@ -67,9 +67,8 @@ public class User {
     }
 
 
-    public User setRole(Role role) {
-        this.role = role;
-        return this;
+    public String getRole() {
+        return role;
     }
 
     public String getFirstName() {

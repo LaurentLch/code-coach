@@ -9,7 +9,7 @@ public class UserDTO {
     private String lastName;
     private String email;
     private String password;
-    private Role role;
+    private String role;
 
 
     public int getId() {
@@ -57,7 +57,7 @@ public class UserDTO {
         return this;
     }
 
-    public UserDTO setRole(Role role) {
+    public UserDTO setRole(String role) {
         this.role = role;
         return this;
     }

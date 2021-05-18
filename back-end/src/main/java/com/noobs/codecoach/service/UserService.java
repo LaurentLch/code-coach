@@ -1,5 +1,6 @@
 package com.noobs.codecoach.service;
 
+import com.noobs.codecoach.domain.entity.Role;
 import com.noobs.codecoach.domain.entity.User;
 import com.noobs.codecoach.domain.repository.UserRepository;
 import com.noobs.codecoach.service.dto.request.CreateUserDTO;
@@ -35,5 +36,11 @@ public class UserService {
         User user = userMapper.fromDto(createUserDTO);
         User createdUser = userRepository.save(user);
         return userMapper.toDto(createdUser);
+    }
+
+    public void updateRoleToCoach(int id) {
+        User user = userRepository.getUserById(id);
+        user.setRole(Role.COACH.getRoleName());
+        userRepository.save(user);
     }
 }

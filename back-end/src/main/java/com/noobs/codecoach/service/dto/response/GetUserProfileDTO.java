@@ -1,6 +1,6 @@
 package com.noobs.codecoach.service.dto.response;
 
-import com.noobs.codecoach.domain.entity.Role;
+
 
 import java.util.List;
 
@@ -9,12 +9,12 @@ public class GetUserProfileDTO {
     private String lastName;
     private String email;
     private List<String> trainingClass;
-    private Role role;
+    private String role;
 
     public GetUserProfileDTO() {
     }
 
-    public GetUserProfileDTO(String firstName, String lastName, String email, List<String> trainingClass, Role role) {
+    public GetUserProfileDTO(String firstName, String lastName, String email, List<String> trainingClass, String role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -48,7 +48,7 @@ public class GetUserProfileDTO {
 
 
 
-    public GetUserProfileDTO setRole(Role role) {
+    public GetUserProfileDTO setRole(String role) {
         this.role = role;
         return this;
     }
@@ -67,7 +67,7 @@ public class GetUserProfileDTO {
 
 
 
-    public Role getRole() {
+    public String getRole() {
         return role;
     }
 }

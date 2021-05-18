@@ -33,5 +33,11 @@ public class UserController {
 
     }
 
+    @PutMapping(path = "/{id}", consumes = "application/json")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void updateRoleToCoach(@PathVariable int id) {
+        userService.updateRoleToCoach(id);
+    }
+
 
 }
