@@ -14,6 +14,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ProfileInformationComponent } from './profile-information/profile-information.component';
 
 // @ts-ignore
 @NgModule({
@@ -21,7 +22,8 @@ import { FooterComponent } from './components/footer/footer.component';
     AppComponent,
     RegistrationComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileInformationComponent
   ],
   imports: [
     BrowserModule,

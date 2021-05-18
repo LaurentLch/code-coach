@@ -1,6 +1,5 @@
 // @ts-ignore
 import {Component, OnInit} from '@angular/core';
-import {HelloWorldService} from './hello-world.service';
 
 // @ts-ignore
 @Component({

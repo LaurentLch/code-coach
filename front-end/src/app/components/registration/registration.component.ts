@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 // @ts-ignore
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {MemberService} from '../../service/member.service';
+import {UserService} from '../../service/user.service';
 
 // @ts-ignore
 @Component({
@@ -18,13 +18,13 @@ export class RegistrationComponent implements OnInit {
     password: ''
   });
 
-  constructor(private memberService: MemberService, private formBuilder: FormBuilder) {
+  constructor(private userService: UserService, private formBuilder: FormBuilder) {
 
   }
 
   // tslint:disable-next-line:typedef
   onSubmit() {
-    this.memberService.addMember(this.createRegistrationForm.value).subscribe( data => {
+    this.userService.addUser(this.createRegistrationForm.value).subscribe( data => {
       data = this.createRegistrationForm;
       console.log('Your registration has been accepted', data);
       this.createRegistrationForm.reset();
