@@ -1,6 +1,6 @@
 package com.noobs.codecoach.service.dto.request;
 
-public class CreateMemberDTO {
+public class CreateUserDTO {
 
     private String firstName;
     private String lastName;
@@ -11,7 +11,7 @@ public class CreateMemberDTO {
         return firstName;
     }
 
-    public CreateMemberDTO setFirstName(String firstName) {
+    public CreateUserDTO setFirstName(String firstName) {
         this.firstName = firstName;
         return this;
     }
@@ -20,7 +20,7 @@ public class CreateMemberDTO {
         return lastName;
     }
 
-    public CreateMemberDTO setLastName(String lastName) {
+    public CreateUserDTO setLastName(String lastName) {
         this.lastName = lastName;
         return this;
     }
@@ -29,7 +29,7 @@ public class CreateMemberDTO {
         return email;
     }
 
-    public CreateMemberDTO setEmail(String email) {
+    public CreateUserDTO setEmail(String email) {
         this.email = email;
         return this;
     }
@@ -38,7 +38,7 @@ public class CreateMemberDTO {
         return password;
     }
 
-    public CreateMemberDTO setPassword(String password) {
+    public CreateUserDTO setPassword(String password) {
         this.password = password;
         return this;
     }

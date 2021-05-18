@@ -6,13 +6,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "member")
-public class Member {
+@Table(name = "user")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +30,7 @@ public class Member {
     @Column(name = "password")
     private String password;
 
-    public Member(String firstName, String lastName, String email, String password) {
+    public User(String firstName, String lastName, String email, String password) {
         validateInput(firstName, lastName, email, password);
         this.firstName = firstName;
         this.lastName = lastName;

@@ -4,17 +4,17 @@ import com.noobs.codecoach.domain.entity.Role;
 
 import java.util.List;
 
-public class GetMemberProfileDTO {
+public class GetUserProfileDTO {
     private String firstName;
     private String lastName;
     private String email;
     private List<String> trainingClass;
     private Role role;
 
-    public GetMemberProfileDTO() {
+    public GetUserProfileDTO() {
     }
 
-    public GetMemberProfileDTO(String firstName, String lastName, String email, List<String> trainingClass, Role role) {
+    public GetUserProfileDTO(String firstName, String lastName, String email, List<String> trainingClass, Role role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -26,29 +26,29 @@ public class GetMemberProfileDTO {
         return trainingClass;
     }
 
-    public GetMemberProfileDTO setTrainingClass(List<String> trainingClass) {
+    public GetUserProfileDTO setTrainingClass(List<String> trainingClass) {
         this.trainingClass = trainingClass;
         return this;
     }
 
-    public GetMemberProfileDTO setFirstName(String firstName) {
+    public GetUserProfileDTO setFirstName(String firstName) {
         this.firstName = firstName;
         return this;
     }
 
-    public GetMemberProfileDTO setLastName(String lastName) {
+    public GetUserProfileDTO setLastName(String lastName) {
         this.lastName = lastName;
         return this;
     }
 
-    public GetMemberProfileDTO setEmail(String email) {
+    public GetUserProfileDTO setEmail(String email) {
         this.email = email;
         return this;
     }
 
 
 
-    public GetMemberProfileDTO setRole(Role role) {
+    public GetUserProfileDTO setRole(Role role) {
         this.role = role;
         return this;
     }
