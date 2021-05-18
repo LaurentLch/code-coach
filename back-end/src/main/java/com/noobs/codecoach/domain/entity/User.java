@@ -30,6 +30,9 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "role")
+    private Role role;
+
     public User(String firstName, String lastName, String email, String password) {
         validateInput(firstName, lastName, email, password);
         this.firstName = firstName;

@@ -1,11 +1,19 @@
 package com.noobs.codecoach.service.dto.request;
 
+import com.noobs.codecoach.domain.entity.Role;
+
 public class CreateUserDTO {
 
     private String firstName;
     private String lastName;
     private String email;
     private String password;
+    private Role role=Role.COACHEE;
+
+    public CreateUserDTO setRole(Role role) {
+        this.role = role;
+        return this;
+    }
 
     public String getFirstName() {
         return firstName;

@@ -1,5 +1,7 @@
 package com.noobs.codecoach.service.dto.response;
 
+import com.noobs.codecoach.domain.entity.Role;
+
 public class UserDTO {
 
     private int id;
@@ -7,6 +9,8 @@ public class UserDTO {
     private String lastName;
     private String email;
     private String password;
+    private Role role;
+
 
     public int getId() {
         return id;
