@@ -8,14 +8,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="code-coach" />
+        <module name="Code-Coach" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="code-coach" target="15" />
+      <module name="Code-Coach" target="15" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Code-Coach" options="-parameters" />
       <module name="code-coach" options="-parameters" />
     </option>
   </component>
