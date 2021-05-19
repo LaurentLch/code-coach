@@ -1,7 +1,5 @@
 package com.noobs.codecoach.service.dto.response;
 
-import com.noobs.codecoach.domain.entity.Role;
-
 public class UserDTO {
 
     private int id;
