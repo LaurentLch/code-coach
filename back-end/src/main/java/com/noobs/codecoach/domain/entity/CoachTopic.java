@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class CoachTopic {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Integer id;
 
@@ -21,8 +21,22 @@ public class CoachTopic {
     }
 
     public CoachTopic(String topicName, int experienceLevel) {
+        validateInput(topicName, experienceLevel);
         this.topicName = topicName;
         this.experienceLevel = experienceLevel;
+    }
+
+    private void validateInput(String topicName, int experienceLevel) {
+        if (topicName == null) {
+            throw new IllegalArgumentException("Wrong argument provided, topicName is null");
+        }
+        if (topicName.isEmpty() || topicName.isBlank()) {
+            throw new IllegalArgumentException("Wrong argument provided, topicName is empty");
+        }
+
+        if (experienceLevel < 1 || experienceLevel > 7) {
+            throw new IllegalArgumentException("Invalid input, the experience level can only be a value from 1 to 7");
+        }
     }
 
     public Integer getId() {
