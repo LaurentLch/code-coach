@@ -1,0 +1,7 @@
+<div *ngIf="user">
+<h1>My Profile</h1>
+<nav>
+  <a routerLink="/user/profile-info/{{user.id}}">Profile Information</a>
+  <a routerLink="/user/become-coach/{{user.id}}">Apply to become a coach</a>
+</nav>
+</div>
