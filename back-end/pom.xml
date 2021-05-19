@@ -11,7 +11,7 @@
 	</parent>
 
 	<groupId>com.noobs</groupId>
-	<artifactId>code-coach</artifactId>
+	<artifactId>code-coachInfo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo</name>
 	<description>Angular + Spring Boot Project</description>
