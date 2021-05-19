@@ -33,6 +33,10 @@ public class User {
     @Column(name = "role")
     private String role;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "coach_info_id", referencedColumnName = "id")
+    private CoachInfo coachInfo;
+
     public User(String firstName, String lastName, String email, String password) {
         validateInput(firstName, lastName, email, password);
         this.firstName = firstName;

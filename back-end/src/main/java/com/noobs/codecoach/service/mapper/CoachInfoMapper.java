@@ -12,8 +12,7 @@ public class CoachInfoMapper {
         return new CoachInfo(
                 createCoachInfoDTO.getIntroduction(),
                 createCoachInfoDTO.getAvailability(),
-                createCoachInfoDTO.getCoachTopic()
-
+                createCoachInfoDTO.getCoachTopicList()
         );
     }
 
@@ -22,9 +21,7 @@ public class CoachInfoMapper {
                 .setId(coachInfo.getId())
                 .setAvailability(coachInfo.getAvailability())
                 .setIntroduction(coachInfo.getIntroduction())
-                .setCoachTopic(coachInfo.getCoachTopic());
-
+                .setCoachTopicList(coachInfo.getCoachTopicList());
     }
-
 
 }
