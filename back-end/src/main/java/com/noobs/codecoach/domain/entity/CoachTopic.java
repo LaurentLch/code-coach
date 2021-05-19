@@ -1,8 +1,5 @@
 package com.noobs.codecoach.domain.entity;
 
-import com.noobs.codecoach.infrastructure.utils.MailAddressValidator;
-import com.noobs.codecoach.infrastructure.utils.PasswordValidator;
-
 import javax.persistence.*;
 
 @Entity
@@ -10,7 +7,7 @@ import javax.persistence.*;
 public class CoachTopic {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Integer id;
 
