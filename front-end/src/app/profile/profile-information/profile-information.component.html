@@ -1,16 +1,9 @@
 <div *ngIf="user">
-  <div >
-    <button (click)="onSubmit()">Became A Coach</button>
-  </div>
+
   <div>
     <div><span>Firstname: </span>{{user.firstName}}</div>
     <div><span>Lastname: </span>{{user.lastName}}</div>
     <div><span>Email: </span>{{user.email}}</div>
     <div><span>Role: </span>{{user.role}}</div>
-  </div>
-
-  <div>
-    <button ><a href="mailto:{{email}}">Send E-mail</a>
-    </button>
   </div>
 </div>
