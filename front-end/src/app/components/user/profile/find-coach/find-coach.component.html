@@ -7,6 +7,11 @@
     </form>
   </div>
   <p>Find-Coach Works!</p>
+  <div class="container">
+    <ul *ngFor="let user of users">
+      <li>{{ user.firstName }} {{user.lastName}}</li>
+    </ul>
+  </div>
 </div>
 
 
