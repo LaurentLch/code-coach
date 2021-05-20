@@ -3,11 +3,17 @@ import { NgModule } from '@angular/core';
 // @ts-ignore
 import { RouterModule, Routes } from '@angular/router';
 import {RegistrationComponent} from './components/registration/registration.component';
-import {ProfileInformationComponent} from './profile-information/profile-information.component';
+import {ProfileInformationComponent} from './profile/profile-information/profile-information.component';
+import {ProfileComponent} from './profile/profile.component';
+import {BecomeCoachComponent} from './profile/become-coach/become-coach.component';
 
 const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
-  { path: 'user/:id', component: ProfileInformationComponent }
+  { path: 'user/:id', component: ProfileComponent ,
+    children: [
+      {path: 'profile-info', component: ProfileInformationComponent },
+      {path: 'become-coach', component: BecomeCoachComponent},
+    ]}
 ];
 
 // @ts-ignore

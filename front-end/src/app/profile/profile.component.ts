@@ -22,7 +22,9 @@ export class ProfileComponent implements OnInit {
   }
 
   getUser(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    // @ts-ignore
+   // const id = Number(this.route.parent.params.get('id'));
+     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.userService.getUser(id).subscribe(user => this.user = user);
   }
 

@@ -16,7 +16,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private int id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -89,6 +89,10 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public CoachInfo getCoachInfo() {

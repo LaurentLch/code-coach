@@ -14,7 +14,9 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ProfileInformationComponent } from './profile-information/profile-information.component';
+import { ProfileInformationComponent } from './profile/profile-information/profile-information.component';
+import { ProfileComponent } from './profile/profile.component';
+import { BecomeCoachComponent } from './profile/become-coach/become-coach.component';
 
 // @ts-ignore
 @NgModule({
@@ -23,7 +25,9 @@ import { ProfileInformationComponent } from './profile-information/profile-infor
     RegistrationComponent,
     HeaderComponent,
     FooterComponent,
-    ProfileInformationComponent
+    ProfileInformationComponent,
+    ProfileComponent,
+    BecomeCoachComponent
   ],
   imports: [
     BrowserModule,
