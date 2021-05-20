@@ -1,5 +1,8 @@
 package com.noobs.codecoach.service.dto.response;
 
+
+import java.util.List;
+
 public class UserDTO {
 
     private int id;
@@ -8,6 +11,8 @@ public class UserDTO {
     private String email;
     private String password;
     private String role;
+    private CoachInfoDTO coachInfoDTO;
+//    private List<String> trainingClass;
 
 
     public int getId() {
@@ -59,4 +64,26 @@ public class UserDTO {
         this.role = role;
         return this;
     }
+
+    public String getRole() {
+        return role;
+    }
+
+    public CoachInfoDTO getCoachInfoDTO() {
+        return coachInfoDTO;
+    }
+
+    public UserDTO setCoachInfoDTO(CoachInfoDTO coachInfoDTO) {
+        this.coachInfoDTO = coachInfoDTO;
+        return this;
+    }
+
+//    public List<String> getTrainingClass() {
+//        return trainingClass;
+//    }
+//
+//    public UserDTO setTrainingClass(List<String> trainingClass) {
+//        this.trainingClass = trainingClass;
+//        return this;
+//    }
 }

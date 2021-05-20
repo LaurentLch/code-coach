@@ -2,12 +2,19 @@ package com.noobs.codecoach.service.mapper;
 
 import com.noobs.codecoach.domain.entity.User;
 import com.noobs.codecoach.service.dto.request.CreateUserDTO;
-import com.noobs.codecoach.service.dto.response.GetUserProfileDTO;
 import com.noobs.codecoach.service.dto.response.UserDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UserMapper {
+
+    private final CoachInfoMapper coachInfoMapper;
+
+    @Autowired
+    public UserMapper(CoachInfoMapper coachInfoMapper) {
+        this.coachInfoMapper = coachInfoMapper;
+    }
 
     public User fromDto(CreateUserDTO createUserDTO) {
         return new User(
@@ -25,15 +32,8 @@ public class UserMapper {
                 .setLastName(user.getLastName())
                 .setEmail(user.getEmail())
                 .setPassword(user.getPassword())
-                .setRole(user.getRole());
-    }
-
-    public GetUserProfileDTO toGetUserProfileDTO(User user) {
-        return new GetUserProfileDTO()
-                .setFirstName(user.getFirstName())
-                .setLastName(user.getLastName())
-                .setEmail(user.getEmail())
-                .setRole(user.getRole());
-                //.setTrainingClass("None");  <-To fix as list
+                .setRole(user.getRole())
+                .setCoachInfoDTO(coachInfoMapper.toDto(user.getCoachInfo()));
+        //.setTrainingClass("None");  <-To fix as list
     }
 }

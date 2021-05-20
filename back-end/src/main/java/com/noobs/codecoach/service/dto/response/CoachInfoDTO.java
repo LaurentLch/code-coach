@@ -1,7 +1,5 @@
 package com.noobs.codecoach.service.dto.response;
 
-import com.noobs.codecoach.domain.entity.CoachTopic;
-
 import java.util.List;
 
 public class CoachInfoDTO {
@@ -9,7 +7,7 @@ public class CoachInfoDTO {
     private int id;
     private String introduction;
     private String availability;
-    private List<CoachTopic> coachTopicList;
+    private List<CoachTopicDTO> coachTopicListDTO;
 
     public int getId() {
         return id;
@@ -38,12 +36,12 @@ public class CoachInfoDTO {
         return this;
     }
 
-    public List<CoachTopic> getCoachTopicList() {
-        return coachTopicList;
+    public List<CoachTopicDTO> getCoachTopicListDTO() {
+        return coachTopicListDTO;
     }
 
-    public CoachInfoDTO setCoachTopicList(List<CoachTopic> coachTopicList) {
-        this.coachTopicList = coachTopicList;
+    public CoachInfoDTO setCoachTopicListDTO(List<CoachTopicDTO> coachTopicListDTO) {
+        this.coachTopicListDTO = coachTopicListDTO;
         return this;
     }
 }
