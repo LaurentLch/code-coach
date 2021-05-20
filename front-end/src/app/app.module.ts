@@ -17,6 +17,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ProfileInformationComponent } from './profile/profile-information/profile-information.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BecomeCoachComponent } from './profile/become-coach/become-coach.component';
+import { CoachListComponent } from './components/coach-list/coach-list.component';
 
 // @ts-ignore
 @NgModule({
@@ -27,7 +28,8 @@ import { BecomeCoachComponent } from './profile/become-coach/become-coach.compon
     FooterComponent,
     ProfileInformationComponent,
     ProfileComponent,
-    BecomeCoachComponent
+    BecomeCoachComponent,
+    CoachListComponent
   ],
   imports: [
     BrowserModule,
