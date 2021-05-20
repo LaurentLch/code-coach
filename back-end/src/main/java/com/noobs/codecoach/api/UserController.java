@@ -3,7 +3,7 @@ package com.noobs.codecoach.api;
 import com.noobs.codecoach.service.dto.request.CreateUserDTO;
 
 import com.noobs.codecoach.service.UserService;
-import com.noobs.codecoach.service.dto.response.GetUserProfileDTO;
+import com.noobs.codecoach.service.dto.response.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -28,9 +28,8 @@ public class UserController {
 
     @GetMapping(path = "/{id}", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public GetUserProfileDTO getUserProfile(@PathVariable int id) throws IllegalArgumentException {
+    public UserDTO getUser(@PathVariable int id) throws IllegalArgumentException {
         return userService.getUserById(id);
-
     }
 
     @PutMapping(path = "/{id}", consumes = "application/json")

@@ -90,4 +90,8 @@ public class User {
     public String getPassword() {
         return password;
     }
+
+    public CoachInfo getCoachInfo() {
+        return coachInfo;
+    }
 }
