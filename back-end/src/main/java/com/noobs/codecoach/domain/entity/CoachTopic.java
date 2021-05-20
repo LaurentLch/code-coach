@@ -26,6 +26,18 @@ public class CoachTopic {
         this.experienceLevel = experienceLevel;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public String getTopicName() {
+        return topicName;
+    }
+
+    public int getExperienceLevel() {
+        return experienceLevel;
+    }
+
     private void validateInput(String topicName, int experienceLevel) {
         if (topicName == null) {
             throw new IllegalArgumentException("Wrong argument provided, topicName is null");
@@ -39,15 +51,4 @@ public class CoachTopic {
         }
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public String getTopicName() {
-        return topicName;
-    }
-
-    public int getExperienceLevel() {
-        return experienceLevel;
-    }
 }

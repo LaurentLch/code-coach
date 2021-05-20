@@ -1,6 +1,5 @@
 package com.noobs.codecoach.service;
 
-
 import com.noobs.codecoach.domain.entity.CoachInfo;
 import com.noobs.codecoach.domain.repository.CoachInfoRepository;
 import com.noobs.codecoach.service.dto.request.CreateCoachInfoDTO;
@@ -27,9 +26,6 @@ public class CoachInfoService {
        CoachInfo coachInfo = coachInfoMapper.fromDto(createCoachInfoDTO);
        CoachInfo createdCoachInfo = coachInfoRepository.save(coachInfo);
        return coachInfoMapper.toDto(createdCoachInfo);
-
-
    }
-
 
 }

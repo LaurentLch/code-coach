@@ -24,13 +24,6 @@ public class UserService {
         this.userMapper = userMapper;
     }
 
-//    public GetUserProfileDTO getUserById(int id) {
-//        if (userRepository.getUserById(id) == null) {
-//            throw new IllegalArgumentException("Id is invalid");
-//        }
-//        return userMapper.toGetUserProfileDTO(userRepository.getUserById(id));
-//    }
-
     public UserDTO createUser(CreateUserDTO createUserDTO) {
         User user = userMapper.fromDto(createUserDTO);
         User createdUser = userRepository.save(user);
