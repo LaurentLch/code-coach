@@ -12,9 +12,12 @@ export class BecomeCoachComponent implements OnInit {
   // tslint:disable-next-line:ban-types
   email: String;
   user: User | undefined;
+  id: number | undefined;
 
   constructor(private userService: UserService, private route: ActivatedRoute) {
     this.email = 'adminyoucoach@gmail.com';
+    // @ts-ignore
+    this.route.parent.paramMap.subscribe(params => {this.id = params.get('id'); });
   }
 
   ngOnInit(): void {
@@ -24,14 +27,13 @@ export class BecomeCoachComponent implements OnInit {
   getUser(): void {
     // @ts-ignore
     // const id = Number(this.route.parent.params.get('id'));
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.userService.getUser(id).subscribe(user => this.user = user);
+    this.userService.getUser(this.id).subscribe(user => this.user = user);
   }
 
   // tslint:disable-next-line:typedef
   onSubmit() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.userService.becomeACoach(id).subscribe( data => {
+    // @ts-ignore
+    this.userService.becomeACoach(this.id).subscribe( data => {
       // @ts-ignore
       data = this.user;
       console.log('You have became a coach', data);
