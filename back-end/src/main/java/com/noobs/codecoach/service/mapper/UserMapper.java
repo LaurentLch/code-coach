@@ -33,7 +33,8 @@ public class UserMapper {
                 .setFirstName(user.getFirstName())
                 .setLastName(user.getLastName())
                 .setEmail(user.getEmail())
-                .setRole(user.getRole());
+                .setRole(user.getRole())
+                .setId(user.getId());
                 //.setTrainingClass("None");  <-To fix as list
     }
 }

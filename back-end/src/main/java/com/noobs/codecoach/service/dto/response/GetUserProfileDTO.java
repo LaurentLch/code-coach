@@ -5,6 +5,7 @@ package com.noobs.codecoach.service.dto.response;
 import java.util.List;
 
 public class GetUserProfileDTO {
+    private int id;
     private String firstName;
     private String lastName;
     private String email;
@@ -51,6 +52,15 @@ public class GetUserProfileDTO {
     public GetUserProfileDTO setRole(String role) {
         this.role = role;
         return this;
+    }
+
+    public GetUserProfileDTO setId(int id) {
+        this.id = id;
+        return this;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getFirstName() {
