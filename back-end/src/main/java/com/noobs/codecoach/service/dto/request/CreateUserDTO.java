@@ -10,9 +10,8 @@ public class CreateUserDTO {
     private String password;
     private String role=Role.COACHEE.getRoleName();
 
-    public CreateUserDTO setRole(String role) {
-        this.role = role;
-        return this;
+    public String getRole() {
+        return role;
     }
 
     public String getFirstName() {

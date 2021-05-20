@@ -1,11 +1,13 @@
 package com.noobs.codecoach.service.dto.response;
 
+import java.util.List;
+
 public class CoachInfoDTO {
 
     private int id;
     private String introduction;
     private String availability;
-    private String coachTopic; //<- to fix
+    private List<CoachTopicDTO> coachTopicListDTO;
 
     public int getId() {
         return id;
@@ -34,12 +36,12 @@ public class CoachInfoDTO {
         return this;
     }
 
-    public String getCoachTopic() {
-        return coachTopic;
+    public List<CoachTopicDTO> getCoachTopicListDTO() {
+        return coachTopicListDTO;
     }
 
-    public CoachInfoDTO setCoachTopic(String coachTopic) {
-        this.coachTopic = coachTopic;
+    public CoachInfoDTO setCoachTopicListDTO(List<CoachTopicDTO> coachTopicListDTO) {
+        this.coachTopicListDTO = coachTopicListDTO;
         return this;
     }
 }

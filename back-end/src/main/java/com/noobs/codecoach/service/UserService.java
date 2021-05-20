@@ -4,7 +4,6 @@ import com.noobs.codecoach.domain.entity.Role;
 import com.noobs.codecoach.domain.entity.User;
 import com.noobs.codecoach.domain.repository.UserRepository;
 import com.noobs.codecoach.service.dto.request.CreateUserDTO;
-import com.noobs.codecoach.service.dto.response.GetUserProfileDTO;
 import com.noobs.codecoach.service.dto.response.UserDTO;
 import com.noobs.codecoach.service.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,17 +24,24 @@ public class UserService {
         this.userMapper = userMapper;
     }
 
-    public GetUserProfileDTO getUserById(int id) {
-        if (userRepository.getUserById(id) == null) {
-            throw new IllegalArgumentException("Id is invalid");
-        }
-        return userMapper.toGetUserProfileDTO(userRepository.getUserById(id));
-    }
+//    public GetUserProfileDTO getUserById(int id) {
+//        if (userRepository.getUserById(id) == null) {
+//            throw new IllegalArgumentException("Id is invalid");
+//        }
+//        return userMapper.toGetUserProfileDTO(userRepository.getUserById(id));
+//    }
 
     public UserDTO createUser(CreateUserDTO createUserDTO) {
         User user = userMapper.fromDto(createUserDTO);
         User createdUser = userRepository.save(user);
         return userMapper.toDto(createdUser);
+    }
+
+    public UserDTO getUserById(int id) {
+        if (userRepository.getUserById(id) == null) {
+            throw new IllegalArgumentException("Id is invalid");
+        }
+        return userMapper.toDto(userRepository.getUserById(id));
     }
 
     public void updateRoleToCoach(int id) {
