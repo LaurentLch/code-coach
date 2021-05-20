@@ -2,7 +2,8 @@
 import {Component, OnInit} from '@angular/core';
 // @ts-ignore
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {UserService} from '../../service/user.service';
+import {UserService} from '../../../service/user.service';
+
 
 // @ts-ignore
 @Component({
@@ -22,6 +23,7 @@ export class RegistrationComponent implements OnInit {
   constructor(private userService: UserService, private formBuilder: FormBuilder) {
 
   }
+
 
   // tslint:disable-next-line:typedef
   onSubmit() {

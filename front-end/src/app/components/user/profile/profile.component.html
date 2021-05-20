@@ -1,0 +1,38 @@
+<div *ngIf="user">
+
+  <div class="panel-heading">
+    <div class="panel-title text-center">
+      <h1 class="title">My Profile</h1>
+      <hr />
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <nav class=" col-2 bg-light">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" [routerLink]="['profile-information']">Profile Information</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" [routerLink]="['find-coach']">Find a Coach</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" [routerLink]="['become-coach']">Become a Coach</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" [routerLink]="['coach-sessions']">Coaching Sessions</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="col-10">
+          <router-outlet></router-outlet>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+ <!--routerLink="/user/{{user.id}}/become-coach"-->
+

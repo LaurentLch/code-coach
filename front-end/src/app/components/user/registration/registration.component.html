@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row main">
+    <div class="panel-heading">
+      <div class="panel-title text-center">
+        <h1 class="title">Create an Account</h1>
+        <hr />
+      </div>
+    </div>
+    <div class="main-login main-center">
+  <section class="tiny-dialog fader">
+    <div class="form-group">
+
+      <form [formGroup]="createRegistrationForm" (ngSubmit)="onSubmit()">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" formControlName="firstName" placeholder="John" id="firstName">
+        <label for="Lastname">Last Name</label>
+        <input type="text" class="form-control" formControlName="lastName" placeholder="Doe" id="Lastname">
+        <label for="Email">Email</label>
+        <input type="text" class="form-control" formControlName="email" placeholder="test@email.com"
+               id="Email">
+        <label for="Password">Password</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="Password"
+               id="Password">
+        <button type="submit" class="btn btn-primary pull-right mt-2">Register</button>
+
+      </form>
+      <a href="">Already have an account?</a>
+    </div>
+  </section>
+</div>
+  </div>
+</div>
+

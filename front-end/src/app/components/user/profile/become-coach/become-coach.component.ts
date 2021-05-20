@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../../service/user.service';
+import {UserService} from '../../../../service/user.service';
 import {ActivatedRoute} from '@angular/router';
-import {User} from '../../model/user';
+import {User} from '../../../../model/user';
 
 @Component({
   selector: 'app-become-coach',

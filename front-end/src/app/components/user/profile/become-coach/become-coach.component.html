@@ -1,0 +1,23 @@
+<p>Become Coach works</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus animi at blanditiis commodi cum earum, eum ipsam nulla obcaecati, officia omnis ratione sequi sint soluta vel velit vero voluptates.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam magni soluta sunt voluptatem voluptatum. Ab aperiam atque, beatae expedita, itaque magni natus, omnis pariatur perspiciatis quidem reprehenderit saepe veniam voluptatum.</p>
+<div *ngIf="user">
+
+  <div>
+    <div><span>Firstname: </span>{{user.firstName}}</div>
+    <div><span>Lastname: </span>{{user.lastName}}</div>
+    <div><span>Email: </span>{{user.email}}</div>
+    <div><span>Role: </span>{{user.role}}</div>
+  </div>
+</div>
+
+<div *ngIf="user">
+  <div >
+    <button (click)="onSubmit()">Became A Coach</button>
+  </div>
+
+  <div>
+    <button ><a href="mailto:{{email}}">Send E-mail</a>
+    </button>
+  </div>
+</div>
