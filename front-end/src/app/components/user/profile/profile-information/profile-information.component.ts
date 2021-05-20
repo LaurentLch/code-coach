@@ -10,10 +10,12 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ProfileInformationComponent implements OnInit {
 user: User | undefined;
-
+id: number | undefined;
 
 
   constructor(private userService: UserService, private route: ActivatedRoute) {
+    // @ts-ignore
+    this.route.parent.paramMap.subscribe(params => {this.id = params.get('id'); });
   }
 
   ngOnInit(): void {
@@ -22,9 +24,7 @@ user: User | undefined;
 
   getUser(): void {
     // @ts-ignore
-   // const id = Number(this.route.parent.params.get('id'));
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.userService.getUser(id).subscribe(user => this.user = user);
+    this.userService.getUser(this.id).subscribe(user => this.user = user);
   }
 
   // tslint:disable-next-line:typedef
