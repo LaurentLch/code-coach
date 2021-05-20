@@ -1,5 +1,5 @@
 // @ts-ignore
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 // @ts-ignore
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {UserService} from '../../service/user.service';
@@ -10,6 +10,7 @@ import {UserService} from '../../service/user.service';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
+
 export class RegistrationComponent implements OnInit {
   createRegistrationForm = this.formBuilder.group({
     firstName: '',
@@ -24,12 +25,14 @@ export class RegistrationComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   onSubmit() {
-    this.userService.addUser(this.createRegistrationForm.value).subscribe( data => {
+    this.userService.addUser(this.createRegistrationForm.value).subscribe(data => {
       data = this.createRegistrationForm;
       console.log('Your registration has been accepted', data);
       this.createRegistrationForm.reset();
     });
   }
+
   ngOnInit(): void {
   }
 }
+

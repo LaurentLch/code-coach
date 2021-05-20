@@ -16,7 +16,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -46,6 +46,34 @@ public class User {
         this.role = Role.COACHEE.getRoleName();
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public CoachInfo getCoachInfo() {
+        return coachInfo;
+    }
+
     private void validateInput(String firstname, String lastname, String email, String password) {
         MailAddressValidator.assertValidEmailAdress(email);
         PasswordValidator.assertValidPassword(password);
@@ -67,35 +95,6 @@ public class User {
         if (password.isEmpty() || password.isBlank()) {
             throw new IllegalArgumentException("Wrong argument provided, password is empty");
         }
-
     }
 
-
-    public String getRole() {
-        return role;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public CoachInfo getCoachInfo() {
-        return coachInfo;
-    }
 }
