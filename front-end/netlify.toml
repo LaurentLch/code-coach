@@ -1,0 +1,4 @@
+[[redirects]]
+from = "/"
+to = "/front-end"
+status = 301
