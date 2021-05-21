@@ -21,6 +21,8 @@ import { HomeComponent } from './components/navigation/home/home.component';
 import { CoachSessionsComponent } from './components/user/profile/coach-sessions/coach-sessions.component';
 import { FindCoachComponent } from './components/user/profile/find-coach/find-coach.component';
 
+
+
 // @ts-ignore
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { FindCoachComponent } from './components/user/profile/find-coach/find-co
     HomeComponent,
     CoachSessionsComponent,
     FindCoachComponent
+
+
   ],
   imports: [
     BrowserModule,
