@@ -33,7 +33,7 @@ public class UserMapper {
                 .setEmail(user.getEmail())
                 .setPassword(user.getPassword())
                 .setRole(user.getRole())
-                .setCoachInfoDTO(coachInfoMapper.toDto(user.getCoachInfo()));
+                .setCoachInfoDTO(user.getCoachInfo() != null ? coachInfoMapper.toDto(user.getCoachInfo()) : null);
         //.setTrainingClass("None");  <-To fix as list
     }
 }
