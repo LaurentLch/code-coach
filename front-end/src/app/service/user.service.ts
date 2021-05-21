@@ -9,7 +9,8 @@ import {map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserService {
-  backendUrl: any ;
+
+  backendUrl: any;
 
   constructor(private http: HttpClient) {
     this.backendUrl = `${environment.backendUrl}/users`;
@@ -28,12 +29,5 @@ export class UserService {
     const url = `${this.backendUrl}/${id}/become-a-coach`;
     return this.http.post(url, {});
   }
-
-
-
-
-
-
-
 }
 
