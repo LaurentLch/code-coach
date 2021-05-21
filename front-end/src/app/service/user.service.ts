@@ -26,7 +26,7 @@ export class UserService {
 
   // tslint:disable-next-line:typedef
   becomeACoach(id: number) {
-    const url = `${this.backendUrl}/${id}`;
-    return this.http.put(url, id);
+    const url = `${this.backendUrl}/${id}/become-a-coach`;
+    return this.http.post(url, {});
   }
 }
