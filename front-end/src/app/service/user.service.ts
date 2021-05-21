@@ -9,7 +9,7 @@ import {map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserService {
-  backendUrl: string;
+  backendUrl: any ;
 
   constructor(private http: HttpClient) {
     this.backendUrl = `${environment.backendUrl}/users`;
