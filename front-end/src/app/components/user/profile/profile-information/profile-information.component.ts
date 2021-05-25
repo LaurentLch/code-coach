@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../../../../model/user';
 import {UserService} from '../../../../service/user.service';
 import {ActivatedRoute} from '@angular/router';
+import {CoachInfo} from '../../../../model/coach-info';
 
 @Component({
   selector: 'app-profile-information',
@@ -10,18 +11,21 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ProfileInformationComponent implements OnInit {
 
-user: User | undefined;
-id: number | undefined;
-
-
+  user: User | undefined;
+  id: number | undefined;
+  coachInfo: CoachInfo | undefined;
 
   constructor(private userService: UserService, private route: ActivatedRoute) {
     // @ts-ignore
-    this.route.parent.paramMap.subscribe(params => {this.id = params.get('id'); });
+    this.route.parent.paramMap.subscribe(params => {
+      // @ts-ignore
+      this.id = params.get('id');
+    });
   }
 
   ngOnInit(): void {
     this.getUser();
+    this.getCoachInfo();
   }
 
   getUser(): void {
@@ -29,6 +33,7 @@ id: number | undefined;
     this.userService.getUser(this.id).subscribe(user => this.user = user);
   }
 
-  // tslint:disable-next-line:typedef
-
+  getCoachInfo(): void {
+    this.userService.getCoachInfo(this.user?.coachInfoId).subscribe(coachInfo => this.coachInfo = coachInfo);
+  }
 }

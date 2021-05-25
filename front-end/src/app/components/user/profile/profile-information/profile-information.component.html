@@ -1,4 +1,4 @@
-<div class="container" *ngIf="user" >
+<div class="container" *ngIf="user">
   <div class="main-body">
 
     <div class="row gutters-sm">
@@ -6,8 +6,9 @@
         <div class="card">
           <div class="card-body">
             <div class="d-flex flex-column align-items-center text-center">
-              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle"
-                   width="150">
+<!--              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle"-->
+<!--                   width="150">-->
+              <img src="https://picsum.photos/200/200" alt="random picture">
               <div class="mt-3">
                 <h4>{{user.firstName}} {{user.lastName}}</h4>
                 <p class="text-secondary mb-1">Role: {{user.role}}</p>
@@ -29,14 +30,14 @@
             </div>
             <hr>
             <div class="row">
-            <div class="col-sm-3">
-              <h6 class="mb-0">Last Name</h6>
+              <div class="col-sm-3">
+                <h6 class="mb-0">Last Name</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{user.lastName}}
+              </div>
             </div>
-            <div class="col-sm-9 text-secondary">
-              {{user.lastName}}
-            </div>
-          </div>
-          <hr>
+            <hr>
             <div class="row">
               <div class="col-sm-3">
                 <h6 class="mb-0">Email</h6>
@@ -46,53 +47,100 @@
               </div>
             </div>
 
-            </div>
           </div>
         </div>
+      </div>
 
       <div class="container">
         <div class="row" *ngIf="user.role =='Coach'">
-          <div class="col-md-8">
-            <div class="card mb-3">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-sm-3">
-                    <h6 class="mb-0">First Name</h6>
-                  </div>
-                  <div class="col-sm-9 text-secondary">
-                    {{user.firstName}}
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-3">
+                  <h6 class="mb-0">Coach XP</h6>
+                </div>
+                <div class="col-9">
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 68%" aria-valuenow="25"
+                         aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
-                <hr>
-                <div class="row">
-                  <div class="col-sm-3">
-                    <h6 class="mb-0">Last Name</h6>
-                  </div>
-                  <div class="col-sm-9 text-secondary">
-                    {{user.lastName}}
-                  </div>
-                </div>
-                <hr>
-                <div class="row">
-                  <div class="col-sm-3">
-                    <h6 class="mb-0">Email</h6>
-                  </div>
-                  <div class="col-sm-9 text-secondary">
-                    {{user.email}}
-                  </div>
-                </div>
-
               </div>
+              <hr>
+              <div class="row">
+                <div class="col-3">
+                  <h6 class="mb-0">Introduction</h6>
+                </div>
+                <div class="col-9">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, ipsum, numquam? Aliquam dolor
+                    dolores error et eveniet. Deleniti deserunt distinctio error expedita explicabo non perferendis
+                    perspiciatis, tempore, totam, veritatis voluptate!</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-3">
+                  <h6 class="mb-0">Availability</h6>
+                </div>
+                <div class="col-9">
+                  <p>I'm available every weekday from 9 to 5 for coaching sessions. I accept payments in DOGE. Call me
+                    at 3 AM, i'll do anything for dogecoins. Very cheap. </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row" *ngIf="user.role =='Coach'">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-6">
+                      <h5 class="mb-0">Coaching Topics</h5>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-3">
+                    <h6 class="mb-0">Mathematics</h6>
+                  </div>
+                  <div class="col-9">
+                    <h1 align="center"></h1>
+                    <!-- To display checked star rating icons -->
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <!-- To display unchecked star rating icons -->
+                    <span class="fa fa-star unchecked"></span>
+                    <span class="fa fa-star unchecked"></span></div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-3">
+                    <h6 class="mb-0">Biology</h6>
+                  </div>
+                  <div class="col-9">
+                    <h1 align="center"></h1>
+                    <!-- To display checked star rating icons -->
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <!-- To display unchecked star rating icons -->
+                    <span class="fa fa-star unchecked"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
         </div>
 
-      </div>
 
       </div>
-
-    </div>
-
-
-  </div>
 
   </div>
 </div>
