@@ -1,16 +1,21 @@
 
+// @ts-ignore
 import { NgModule } from '@angular/core';
 
+// @ts-ignore
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// @ts-ignore
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { RegistrationComponent } from './components/user/registration/registration.component';
 
+// @ts-ignore
 import {ReactiveFormsModule} from '@angular/forms';
 
+// @ts-ignore
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/navigation/header/header.component';
 import { FooterComponent } from './components/navigation/footer/footer.component';
@@ -24,6 +29,7 @@ import { LoginComponent } from './components/user/login/login.component';
 import {AuthenticationInterceptor} from "./service/authentication.interceptor";
 
 
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,

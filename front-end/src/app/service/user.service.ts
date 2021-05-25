@@ -31,9 +31,9 @@ export class UserService {
     return this.http.post(url, {});
   }
 
-  getCoachInfo(coachInfoId: number |undefined) {
-    const url = `${this.backendUrl}/coach_infos/${coachInfoId}`;
-    return this.http.get<CoachInfo>(url).pipe(map(response => response))
-  }
+  // getCoachInfo(coachInfoId: number |undefined) {
+  //   const url = `${this.backendUrl}/coach_infos/${coachInfoId}`;
+  //   return this.http.get<CoachInfo>(url).pipe(map(response => response))
+  // }
 }
 
