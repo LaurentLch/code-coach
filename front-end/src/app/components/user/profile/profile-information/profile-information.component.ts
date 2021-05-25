@@ -34,6 +34,7 @@ export class ProfileInformationComponent implements OnInit {
   }
 
   getCoachInfo(): void {
+    // @ts-ignore
     this.userService.getCoachInfo(this.user?.coachInfoId).subscribe(coachInfo => this.coachInfo = coachInfo);
   }
 }
