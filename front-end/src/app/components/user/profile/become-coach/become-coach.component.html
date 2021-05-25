@@ -1,21 +1,43 @@
-<p>Become Coach works</p>
-<div *ngIf="user">
+<div class="container" *ngIf="user">
+  <div class="main-body">
 
-  <div>
-    <div><span>Firstname: </span>{{user.firstName}}</div>
-    <div><span>Lastname: </span>{{user.lastName}}</div>
-    <div><span>Email: </span>{{user.email}}</div>
-    <div><span>Role: </span>{{user.role}}</div>
+    <div class="container">
+      <div class="row" *ngIf="user.role =='Coach'">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">
+                <h4 class="mb-0">Apply to Become a Coach</h4> <br>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-3">
+                  <img src="../../../assets/images/construction.png" height="200px" alt="">
+                </div>
+                <div class="col-9">
+                  <p>This part of the application is currently still under construction. In order to become a coach
+                    please send an email to your administrator with the following information:</p>
+                  <ul>
+                    <li>Your full name</li>
+                    <li>Your motivation</li>
+                    <li>The list of topics (topic + grade) on which you would like to coach</li>
+                  </ul>
+                </div>
+                <div *ngIf="user">
+                  <div >
+                    <button class="pull-right btn btn-outline-info" (click)="onSubmit()">Become A Coach</button>
+                  </div>
+
+                  <div>
+                    <button class="pull-right btn btn-outline-info"><a href="mailto:{{email}}">Send E-mail</a></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<div *ngIf="user">
-  <div >
-    <button (click)="onSubmit()">Became A Coach</button>
-  </div>
 
-  <div>
-    <button ><a href="mailto:{{email}}">Send E-mail</a>
-    </button>
-  </div>
-</div>
