@@ -96,34 +96,17 @@
                   </div>
                 </div>
                 <hr>
-                <div class="row">
-                  <div class="col-3">
-                    <h6 class="mb-0">Mathematics</h6>
-                  </div>
-                  <div class="col-9">
-                    <h1 align="center"></h1>
-                    <!-- To display checked star rating icons -->
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <!-- To display unchecked star rating icons -->
-                    <span class="fa fa-star unchecked"></span>
-                    <span class="fa fa-star unchecked"></span></div>
+                <div *ngFor="let coachTopic of user.coachInfoDTO.coachTopicListDTO">
+                  <div class="row">
+                    <div class="col-3">
+                      <h6 class="mb-0">{{coachTopic.topicName}}</h6>
+                    </div>
+                    <div class="col-9">
+                      <h6 align="center">{{coachTopic.experienceLevel}}</h6>
+                    </div>
+                    <hr>
                 </div>
-                <hr>
-                <div class="row">
-                  <div class="col-3">
-                    <h6 class="mb-0">Biology</h6>
-                  </div>
-                  <div class="col-9">
-                    <h1 align="center"></h1>
-                    <!-- To display checked star rating icons -->
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <!-- To display unchecked star rating icons -->
-                    <span class="fa fa-star unchecked"></span>
+
                   </div>
                 </div>
               </div>
@@ -138,6 +121,8 @@
 
   </div>
 </div>
-</div>
 
-
+<!-- To display checked star rating icons -->
+<!--                    <span class="fa fa-star checked"></span>-->
+<!-- To display unchecked star rating icons -->
+<!--                    <span class="fa fa-star unchecked"></span>-->
