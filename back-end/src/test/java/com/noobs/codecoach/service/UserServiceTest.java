@@ -30,7 +30,7 @@ class UserServiceTest {
         when(repository.save(any())).thenReturn(new User());
         when(mapper.toDto(any())).thenReturn(new UserDTO());
         //WHEN
-        service.createUser(any());
+        service.createSimpleUser(any());
         //THEN
         InOrder inOrder = Mockito.inOrder(mapper, repository);
         inOrder.verify(mapper).fromDto(any());

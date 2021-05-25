@@ -9,8 +9,10 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./profile-information.component.css']
 })
 export class ProfileInformationComponent implements OnInit {
+
 user: User | undefined;
 id: number | undefined;
+
 
 
   constructor(private userService: UserService, private route: ActivatedRoute) {

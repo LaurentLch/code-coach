@@ -1,5 +1,6 @@
 package com.noobs.codecoach.api;
 
+import com.noobs.codecoach.service.dto.request.CreateSimpleUserDTO;
 import com.noobs.codecoach.service.dto.request.CreateUserDTO;
 
 import com.noobs.codecoach.service.UserService;
@@ -9,9 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 
-@CrossOrigin(value = "http://localhost:4200")
+@CrossOrigin
 @RestController
-@RequestMapping(path = "/users", produces = "application/json")
+@RequestMapping(path = "/users")
 public class UserController {
 
     private final UserService userService;
@@ -22,8 +23,8 @@ public class UserController {
     }
 
     @PostMapping(consumes = "application/json")
-    public void createUser(@RequestBody CreateUserDTO createUserDTO) {
-        userService.createUser(createUserDTO);
+    public void createSimpleUser(@RequestBody CreateSimpleUserDTO createSimpleUserDTO) {
+        userService.createSimpleUser(createSimpleUserDTO);
     }
 
     @GetMapping(path = "/{id}", produces = "application/json")
@@ -32,7 +33,7 @@ public class UserController {
         return userService.getUserById(id);
     }
 
-    @PutMapping(path = "/{id}", consumes = "application/json")
+    @PostMapping(path = "/{id}/become-a-coach", consumes = "application/json")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void updateRoleToCoach(@PathVariable int id) {
         userService.updateRoleToCoach(id);

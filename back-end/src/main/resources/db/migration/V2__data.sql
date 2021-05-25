@@ -9,4 +9,4 @@ INSERT INTO coach_topic(id, experience_level, "topic_name", fk_coach_info_id)
 values ('3', '5', 'Topic3', '1');
 
 INSERT INTO users(id, "email", "first_name", "last_name", "password", "role", coach_info_id)
-values ('1', 'frederik.collignon@hotmail.com', 'Frederik', 'Collignon', 'P4ssword', 'COACH', '1');
+values ('1', 'frederik.collignon@hotmail.com', 'Frederik', 'Collignon', 'P4ssword', 'Coach', '1');
