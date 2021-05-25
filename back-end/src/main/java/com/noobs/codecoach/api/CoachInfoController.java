@@ -6,7 +6,6 @@ import com.noobs.codecoach.service.dto.response.CoachInfoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(value = "http://localhost:4200")
 @RestController
 @RequestMapping(path = "/coach_infos", produces = "application/json")
 public class CoachInfoController {

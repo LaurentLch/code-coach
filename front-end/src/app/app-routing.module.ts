@@ -8,11 +8,13 @@ import {BecomeCoachComponent} from './components/user/profile/become-coach/becom
 import {HomeComponent} from './components/navigation/home/home.component';
 import {CoachSessionsComponent} from './components/user/profile/coach-sessions/coach-sessions.component';
 import {FindCoachComponent} from './components/user/profile/find-coach/find-coach.component';
+import {LoginComponent} from './components/user/login/login.component';
 
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   { path: 'registration', component: RegistrationComponent },
+  { path: 'log', component: LoginComponent },
   { path: 'user/:id', component: ProfileComponent ,
     children: [
       {path: 'profile-information', component: ProfileInformationComponent },
