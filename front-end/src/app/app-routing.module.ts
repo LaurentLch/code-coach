@@ -1,5 +1,7 @@
+// @ts-ignore
 import {NgModule} from '@angular/core';
 
+// @ts-ignore
 import {RouterModule, Routes} from '@angular/router';
 import {RegistrationComponent} from './components/user/registration/registration.component';
 import {ProfileInformationComponent} from './components/user/profile/profile-information/profile-information.component';
@@ -22,6 +24,7 @@ const routes: Routes = [
 ];
 
 
+// @ts-ignore
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
