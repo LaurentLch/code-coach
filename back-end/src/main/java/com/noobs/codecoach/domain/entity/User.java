@@ -1,22 +1,26 @@
 package com.noobs.codecoach.domain.entity;
 
+import com.noobs.codecoach.infrastructure.security.authentication.user.Authority;
+import com.noobs.codecoach.infrastructure.security.authentication.user.api.Account;
 import com.noobs.codecoach.infrastructure.utils.MailAddressValidator;
 import com.noobs.codecoach.infrastructure.utils.PasswordValidator;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Arrays;
+import java.util.List;
 
 @NoArgsConstructor
 @Data
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -46,7 +50,7 @@ public class User {
         this.role = Role.COACHEE.getRoleName();
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -64,6 +68,26 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public List<Authority> getAuthorities() {
+        return switch (Role.fromValue(role)) {
+            case ADMINISTRATOR -> Arrays.asList(Authority.ADMIN, Authority.COACH, Authority.COACHEE);
+            case COACH -> Arrays.asList(Authority.COACH, Authority.COACHEE);
+            case COACHEE -> Arrays.asList(Authority.COACHEE);
+            default -> throw new RuntimeException("Unknown role: " + role);
+        };
+    }
+
+    @Override
+    public boolean isAccountEnabled() {
+        return true;
+    }
+
+    @Override
+    public void enableAccount() {
+        //account is always enabled for now
     }
 
     public String getRole() {

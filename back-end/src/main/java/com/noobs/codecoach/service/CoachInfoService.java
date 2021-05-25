@@ -28,4 +28,7 @@ public class CoachInfoService {
        return coachInfoMapper.toDto(createdCoachInfo);
    }
 
+    public CoachInfoDTO getCoachInfoById(int id) {
+        return coachInfoMapper.toDto(coachInfoRepository.getCoachInfoById(id));
+    }
 }

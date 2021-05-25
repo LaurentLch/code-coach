@@ -1,6 +1,7 @@
 package com.noobs.codecoach.service.mapper;
 
 import com.noobs.codecoach.domain.entity.User;
+import com.noobs.codecoach.infrastructure.security.authentication.user.api.CreateSecuredUserDto;
 import com.noobs.codecoach.service.dto.request.CreateUserDTO;
 import com.noobs.codecoach.service.dto.response.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,14 @@ public class UserMapper {
                 .setRole(user.getRole())
                 .setCoachInfoDTO(user.getCoachInfo() != null ? coachInfoMapper.toDto(user.getCoachInfo()) : null);
         //.setTrainingClass("None");  <-To fix as list
+    }
+
+    public User toAccount(CreateSecuredUserDto createSecuredUserDto) {
+        return new User(
+                createSecuredUserDto.getFirstName(),
+                createSecuredUserDto.getLastName(),
+                createSecuredUserDto.getEmail(),
+                createSecuredUserDto.getPassword()
+        );
     }
 }
