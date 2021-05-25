@@ -12,6 +12,7 @@ import com.noobs.codecoach.service.dto.response.UserDTO;
 import com.noobs.codecoach.service.mapper.SimpleUserMapper;
 import com.noobs.codecoach.service.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -24,16 +25,19 @@ public class UserService implements AccountService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     private final SimpleUserMapper simpleUserMapper;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserService(UserRepository userRepository, UserMapper userMapper, SimpleUserMapper simpleUserMapper) {
+    public UserService(UserRepository userRepository, UserMapper userMapper, SimpleUserMapper simpleUserMapper, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
         this.simpleUserMapper = simpleUserMapper;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public SimpleUserDTO createSimpleUser(CreateSimpleUserDTO createSimpleUserDTO) {
         User user = simpleUserMapper.fromDto(createSimpleUserDTO);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         User createdUser = userRepository.save(user);
         return simpleUserMapper.toDto(createdUser);
     }
