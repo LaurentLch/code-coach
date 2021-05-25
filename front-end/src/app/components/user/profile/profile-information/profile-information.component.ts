@@ -13,7 +13,7 @@ export class ProfileInformationComponent implements OnInit {
 
   user: User | undefined;
   id: number | undefined;
-  coachInfo: CoachInfo | undefined;
+  // coachInfo: CoachInfo | undefined;
 
   constructor(private userService: UserService, private route: ActivatedRoute) {
     // @ts-ignore
@@ -25,7 +25,7 @@ export class ProfileInformationComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUser();
-    this.getCoachInfo();
+   // this.getCoachInfo();
   }
 
   getUser(): void {
@@ -33,8 +33,9 @@ export class ProfileInformationComponent implements OnInit {
     this.userService.getUser(this.id).subscribe(user => this.user = user);
   }
 
-  getCoachInfo(): void {
-    // @ts-ignore
-    this.userService.getCoachInfo(this.user?.coachInfoId).subscribe(coachInfo => this.coachInfo = coachInfo);
-  }
+  // getCoachInfo(): void {
+  //   // @ts-ignore
+  //   // this.userService.getCoachInfo(this.user.coachInfoId).subscribe(coachInfo => this.coachInfo = coachInfo);
+  //   this.coachInfo = this.user?.coachInfoDto;
+  // }
 }
