@@ -57,7 +57,7 @@ public class SecuredUserService implements UserDetailsService {
         Account account = accountService.createAccount(createSecuredUserDto);
         account.setPassword(passwordEncoder.encode(createSecuredUserDto.getPassword()));
 
-        accountVerificationService.sendVerificationEmail(account);
+//        accountVerificationService.sendVerificationEmail(account);
 
         return accountMapper.toUserDto(account);
     }
