@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {User} from '../../../../model/user';
 import {UserService} from '../../../../service/user.service';
 import {ActivatedRoute} from '@angular/router';
-import {CoachInfo} from '../../../../model/coach-info';
 
 @Component({
   selector: 'app-profile-information',

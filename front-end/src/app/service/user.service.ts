@@ -4,7 +4,6 @@ import {environment} from '../../environments/environment';
 import {User} from '../model/user';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {CoachInfo} from '../model/coach-info';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +29,12 @@ export class UserService {
     const url = `${this.backendUrl}/users/${id}/become-a-coach`;
     return this.http.post(url, {});
   }
+
+  getUserList(id: number): Observable<User[]> {
+    const url = `${this.backendUrl}/users/${id}/find-coach`;
+    return this.http.get<User[]>(url).pipe(map(response => response));
+  }
+
 
   // getCoachInfo(coachInfoId: number |undefined) {
   //   const url = `${this.backendUrl}/coach_infos/${coachInfoId}`;
