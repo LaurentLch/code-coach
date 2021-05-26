@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row main">
+    <div class="panel-heading">
+      <div class="panel-title text-center">
+        <h1 class="title">Create an Account</h1>
+        <hr />
+      </div>
+    </div>
+  </div>
+  <section class="tiny-dialog fader">
+    <div class="form-group">
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" formControlName="username" placeholder="username" id="username">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="password" id="password">
+        <button type="submit" class="btn btn-primary pull-right mt-2">Login</button>
+      </form>
+    </div>
+  </section>
+</div>
+

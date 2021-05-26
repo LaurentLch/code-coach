@@ -1,3 +1,5 @@
+import {CoachInfo} from './coach-info';
+
 export interface User {
   id: number;
   firstName: string;
@@ -5,5 +7,5 @@ export interface User {
   email: string;
   password: string;
   role: string;
-  coachInfoId: number;
+  coachInfoDTO: CoachInfo;
 }

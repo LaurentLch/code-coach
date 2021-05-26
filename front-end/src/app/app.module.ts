@@ -1,16 +1,21 @@
 
+// @ts-ignore
 import { NgModule } from '@angular/core';
 
+// @ts-ignore
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import {HttpClientModule} from '@angular/common/http';
+// @ts-ignore
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { RegistrationComponent } from './components/user/registration/registration.component';
 
+// @ts-ignore
 import {ReactiveFormsModule} from '@angular/forms';
 
+// @ts-ignore
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/navigation/header/header.component';
 import { FooterComponent } from './components/navigation/footer/footer.component';
@@ -20,8 +25,11 @@ import { BecomeCoachComponent } from './components/user/profile/become-coach/bec
 import { HomeComponent } from './components/navigation/home/home.component';
 import { CoachSessionsComponent } from './components/user/profile/coach-sessions/coach-sessions.component';
 import { FindCoachComponent } from './components/user/profile/find-coach/find-coach.component';
+import { LoginComponent } from './components/user/login/login.component';
+import {AuthenticationInterceptor} from "./service/authentication.interceptor";
 
 
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +42,7 @@ import { FindCoachComponent } from './components/user/profile/find-coach/find-co
     HomeComponent,
     CoachSessionsComponent,
     FindCoachComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +51,9 @@ import { FindCoachComponent } from './components/user/profile/find-coach/find-co
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
