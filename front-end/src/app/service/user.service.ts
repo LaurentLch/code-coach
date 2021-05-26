@@ -14,20 +14,20 @@ export class UserService {
   backendUrl: any;
 
   constructor(private http: HttpClient) {
-    this.backendUrl = `${environment.backendUrl}/users`;
+    this.backendUrl = `${environment.backendUrl}`;
   }
 
   addUser(user: User) {
-    return this.http.post(this.backendUrl, user);
+    return this.http.post(`${this.backendUrl}/security/account`, user);
   }
 
   getUser(id: number): Observable<User> {
-    const url = `${this.backendUrl}/${id}`;
+    const url = `${this.backendUrl}/users/${id}`;
     return this.http.get<User>(url).pipe(map(response => response));
   }
 
   becomeACoach(id: number) {
-    const url = `${this.backendUrl}/${id}/become-a-coach`;
+    const url = `${this.backendUrl}/users/${id}/become-a-coach`;
     return this.http.post(url, {});
   }
 
