@@ -58,7 +58,7 @@ public class UserService implements AccountService {
     }
 
     public List<UserDTO> getAllUsers(){
-        return userRepository.getAllUsers().stream().map(userMapper::toDto).collect(Collectors.toList());
+        return userRepository.findAll().stream().map(userMapper::toDto).collect(Collectors.toList());
     }
 
     @Override

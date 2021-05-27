@@ -31,7 +31,7 @@ export class UserService {
   }
 
   getUserList(id: number): Observable<User[]> {
-    const url = `${this.backendUrl}/users/${id}/find-coach`;
+    const url = `${this.backendUrl}/users/user-list`;
     return this.http.get<User[]>(url).pipe(map(response => response));
   }
 
