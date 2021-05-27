@@ -16,7 +16,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -55,6 +57,10 @@ public class UserService implements AccountService {
         userRepository.save(user);
     }
 
+    public List<UserDTO> getAllUsers(){
+        return userRepository.getAllUsers().stream().map(userMapper::toDto).collect(Collectors.toList());
+    }
+
     @Override
     public Optional<User> findByEmail(String userName) {
         return Optional.ofNullable(userRepository.getUserByEmail(userName));
@@ -70,4 +76,6 @@ public class UserService implements AccountService {
     public boolean existsByEmail(String email) {
         return userRepository.getUserByEmail(email) != null;
     }
+
+
 }
