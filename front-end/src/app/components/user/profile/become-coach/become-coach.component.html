@@ -2,6 +2,9 @@
   <div class="main-body">
 
     <div class="container">
+      <div class="row" *ngIf="user.role=='Coach'">
+        <h4>You are now a coach! Thank you .</h4>
+      </div>
       <div class="row" *ngIf="user.role =='Coachee'">
         <div class="card mb-3">
           <div class="card-body">
@@ -23,21 +26,20 @@
                     <li>The list of topics (topic + grade) on which you would like to coach</li>
                   </ul>
                 </div>
-                <div *ngIf="user">
-                  <div >
-                    <button class="pull-right btn btn-outline-info" (click)="onSubmit()">Become A Coach</button>
-                  </div>
+                <div>
+                  <button class="pull-right btn btn-outline-info" (click)="onSubmit()" (click)="reloadCurrentPage()" routerLink="#">Become A Coach
+                  </button>
+                </div>
 
-                  <div>
-                    <button class="pull-right btn btn-outline-info"><a href="mailto:{{email}}">Send E-mail</a></button>
-                  </div>
+                <div>
+                  <button class="pull-right btn btn-outline-info"><a href="mailto:{{email}}">Send E-mail</a></button>
                 </div>
               </div>
             </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 
