@@ -39,4 +39,8 @@ export class BecomeCoachComponent implements OnInit {
       console.log('You have became a coach', data);
     });
   }
+
+  reloadCurrentPage() {
+    window.location.reload();
+  }
 }
