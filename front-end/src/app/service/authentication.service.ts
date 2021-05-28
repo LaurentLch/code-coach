@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 // @ts-ignore
 import * as JWT from 'jwt-decode';
+import {SecurityService} from './security.service';
+import {tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,12 @@ export class AuthenticationService {
 
   userLoggedIn$ = this.userLoggedInSource.asObservable();
 
-  constructor() {
+  constructor(private securityService: SecurityService) {
+  }
+
+  logIn(loginData:any) {
+    return this.securityService.login(loginData).pipe(tap(data =>
+    this.userLoggedInSource.next(true)));
   }
 
   public setJwtToken(token: string): void {
@@ -25,7 +32,7 @@ export class AuthenticationService {
     return sessionStorage.getItem(this.tokenKey);
   }
 
-  getUserId() {
+  getUserId(): number | null{
     if (!this.isLoggedIn()) {
       return null;
     }
