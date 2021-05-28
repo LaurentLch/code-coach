@@ -44,3 +44,4 @@ export class BecomeCoachComponent implements OnInit {
     window.location.reload();
   }
 }
+
