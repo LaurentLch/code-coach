@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../../../service/user.service';
 import {ActivatedRoute} from '@angular/router';
 import {User} from '../../../../model/user';
@@ -17,7 +17,10 @@ export class BecomeCoachComponent implements OnInit {
   constructor(private userService: UserService, private route: ActivatedRoute) {
     this.email = 'adminyoucoach@gmail.com';
     // @ts-ignore
-    this.route.parent.paramMap.subscribe(params => {this.id = params.get('id'); });
+    this.route.parent.paramMap.subscribe(params => {
+      // @ts-ignore
+      this.id = params.get('id');
+    });
   }
 
   ngOnInit(): void {
@@ -33,14 +36,12 @@ export class BecomeCoachComponent implements OnInit {
   // tslint:disable-next-line:typedef
   onSubmit() {
     // @ts-ignore
-    this.userService.becomeACoach(this.id).subscribe( data => {
+    this.userService.becomeACoach(this.id).subscribe(data => {
       // @ts-ignore
       data = this.user;
-      console.log('You have became a coach', data);
+      console.log('You have become a coach', data);
     });
   }
-
-  reloadCurrentPage() {
-    window.location.reload();
-  }
 }
+
+
