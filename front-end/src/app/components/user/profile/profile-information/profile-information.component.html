@@ -104,18 +104,18 @@
                     <h5 align="center">Level of Experience</h5>
                   </div>
                   <hr>
-                  <div *ngFor="let coachTopic of user.coachInfoDTO.coachTopicListDTO">
-                    <div class="row">
-                      <div class="col-3">
-                        <h6 class="mb-0">{{coachTopic.topicName}}</h6>
-                      </div>
-                      <div class="col-9">
-                        <h6 align="center">{{coachTopic.experienceLevel}}</h6>
-                      </div>
-                      <hr>
+                <div *ngFor="let coachTopic of user.coachInfoDTO.coachTopicListDTO">
+                  <div class="row">
+                    <div class="col-3">
+                      <h6 class="mb-0">{{coachTopic.topicName}}</h6>
                     </div>
-
+                    <div class="col-9">
+                      <h6 align="center">{{coachTopic.experienceLevel}}</h6>
+                    </div>
+                    <hr>
                   </div>
+
+                </div>
                 </div>
               </div>
             </div>
@@ -125,6 +125,6 @@
 
         </div>
       </div>
-    </div>
   </div>
+</div>
 </div>
