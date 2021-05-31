@@ -16,12 +16,14 @@
             <span class="text-danger"
                   *ngIf="(registerFormControl.firstName.touched || submitted) && registerFormControl.firstName.errors?.required">
                                 Name is required
+              <br>
           </span>
             <label for="Lastname">Last Name</label>
             <input type="text" class="form-control" formControlName="lastName" placeholder="Doe" id="Lastname">
             <span class="text-danger"
                   *ngIf="(registerFormControl.lastName.touched || submitted) && registerFormControl.lastName.errors?.required">
                                 LastName is required
+              <br>
           </span>
             <label for="Email">Email</label>
             <input type="text" class="form-control" formControlName="email" placeholder="test@email.com"
@@ -29,10 +31,12 @@
             <span class="text-danger"
                   *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.required">
                                 Email is required
+              <br>
                             </span>
             <span class="text-danger"
                   *ngIf="(registerFormControl.email.touched || submitted) && !registerFormControl.email.errors?.required && registerFormControl.email.errors?.invalidEmail">
                                 Email is invalid
+              <br>
                             </span>
             <label for="Password">Password</label>
             <input type="password" class="form-control" formControlName="password"
@@ -41,21 +45,25 @@
             <span class="text-danger"
                   *ngIf="(registerFormControl.password.touched || submitted) && registerFormControl.password.errors?.required">
                                 Password is required
+              <br>
                             </span>
             <span class="text-danger"
                   *ngIf="registerFormControl.password.touched && registerFormControl.password.errors?.invalidPassword">
                                 Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
                                 letter and 1 number
+              <br>
                             </span>
             <label>Confirm Password</label>
             <input type="password" class="form-control" formControlName="confirmPassword">
             <span class="text-danger"
                   *ngIf="(registerFormControl.confirmPassword.touched || submitted)&& registerFormControl.confirmPassword.errors?.required">
                                 Confirm Password is required
+              <br>
                             </span>
             <span class="text-danger"
                   *ngIf="registerFormControl.confirmPassword.touched && registerFormControl.confirmPassword.errors?.passwordMismatch">
                                 Passwords does not match
+              <br>
                             </span>
             <button type="submit" class="btn btn-primary pull-right mt-2">Register</button>
 
