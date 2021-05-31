@@ -40,6 +40,7 @@ export class BecomeCoachComponent implements OnInit {
       // @ts-ignore
       data = this.user;
       console.log('You have become a coach', data);
+
     });
   }
 }
