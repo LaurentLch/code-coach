@@ -10,25 +10,25 @@ import {RegistrationValidationService} from './validation/registration-validatio
 })
 
 export class RegistrationComponent implements OnInit {
-  registerForm: FormGroup;
+  registerForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', Validators.compose([Validators.required, this.validator.patternValidatorEmail()])],
+      password: ['', Validators.compose([Validators.required, this.validator.patternValidatorPassword()])],
+      confirmPassword: ['', [Validators.required]],
+    },
+    {
+      validators: this.validator.MatchPassword('password', 'confirmPassword')
+    }
+  );
   submitted = false;
 
   constructor(private userService: UserService,
               private formBuilder: FormBuilder,
-              private validator: RegistrationValidationService) {}
+              private validator: RegistrationValidationService) {
+  }
 
-  ngOnInit(){
-    this.registerForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.compose([Validators.required, this.validator.patternValidator()])],
-      confirmPassword: ['', [Validators.required]],
-    },
-      {
-        validator: this.validator.MatchPassword('password', 'confirmPassword')
-      }
-    );
+  ngOnInit() {
   }
 
   get registerFormControl() {
