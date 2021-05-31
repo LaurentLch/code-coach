@@ -1,11 +1,8 @@
-// @ts-ignore
 import {Component, OnInit} from '@angular/core';
-// @ts-ignore
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../../service/user.service';
+import {RegistrationValidationService} from './validation/registration-validation.service';
 
-
-// @ts-ignore
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -13,28 +10,41 @@ import {UserService} from '../../../service/user.service';
 })
 
 export class RegistrationComponent implements OnInit {
-  createRegistrationForm = this.formBuilder.group({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: ''
-  });
+  registerForm: FormGroup;
+  submitted = false;
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder) {
+  constructor(private userService: UserService,
+              private formBuilder: FormBuilder,
+              private validator: RegistrationValidationService) {}
 
+  ngOnInit(){
+    this.registerForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.compose([Validators.required, this.validator.patternValidator()])],
+      confirmPassword: ['', [Validators.required]],
+    },
+      {
+        validator: this.validator.MatchPassword('password', 'confirmPassword')
+      }
+    );
   }
 
+  get registerFormControl() {
+    return this.registerForm.controls;
+  }
 
-  // tslint:disable-next-line:typedef
   onSubmit() {
-    this.userService.addUser(this.createRegistrationForm.value).subscribe(data => {
-      data = this.createRegistrationForm;
-      console.log('Your registration has been accepted', data);
-      this.createRegistrationForm.reset();
-    });
-  }
-
-  ngOnInit(): void {
+    this.submitted = true;
+    if (this.registerForm.valid) {
+      alert('Thanks for registering!');
+      this.userService.addUser(this.registerForm.value).subscribe(data => {
+        data = this.registerForm;
+        console.log('Your registration has been accepted', data);
+        this.registerForm.reset();
+      });
+    }
   }
 }
 

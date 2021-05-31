@@ -15,15 +15,17 @@ import {LoginComponent} from './components/user/login/login.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
-  { path: 'registration', component: RegistrationComponent },
-  { path: 'log', component: LoginComponent },
-  { path: 'user/:id', component: ProfileComponent ,
+  {path: 'registration', component: RegistrationComponent},
+  {path: 'log', component: LoginComponent},
+  {
+    path: 'user/:id', component: ProfileComponent,
     children: [
-      {path: 'profile-information', component: ProfileInformationComponent },
+      {path: 'profile-information', component: ProfileInformationComponent},
       {path: 'become-coach', component: BecomeCoachComponent},
       {path: 'find-coach', component: FindCoachComponent},
       {path: 'coach-sessions', component: CoachSessionsComponent}
-    ]}
+    ]
+  }
 ];
 
 
@@ -32,4 +34,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
