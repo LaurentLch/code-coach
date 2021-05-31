@@ -1,11 +1,11 @@
-// @ts-ignore
 import {Component, OnInit} from '@angular/core';
-// @ts-ignore
+
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {UserService} from '../../../service/user.service';
+import {Router} from '@angular/router';
+import {AuthenticationService} from '../../../service/authentication.service';
 
 
-// @ts-ignore
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -20,21 +20,33 @@ export class RegistrationComponent implements OnInit {
     password: ''
   });
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder) {
+  loginForm = this.formBuilder.group({
+    email: '',
+    password: ''
+  });
 
+
+  constructor(private userService: UserService,
+              private formBuilder: FormBuilder,
+              private route: Router,
+              private authenticationService: AuthenticationService) {
   }
 
 
-  // tslint:disable-next-line:typedef
   onSubmit() {
     this.userService.addUser(this.createRegistrationForm.value).subscribe(data => {
       data = this.createRegistrationForm;
       console.log('Your registration has been accepted', data);
-      this.createRegistrationForm.reset();
+      this.authenticationService.logIn(this.loginForm.value);
+      this.route.navigateByUrl(`/home`);
+      // this.route.navigateByUrl(`user/${this.authenticationService.getUserId()}/profile-information`);
+      // this.route.navigateByUrl('/log');
     });
   }
 
   ngOnInit(): void {
   }
 }
+
+
 
