@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../../service/user.service';
 import {RegistrationValidationService} from './validation/registration-validation.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -27,7 +28,8 @@ export class RegistrationComponent implements OnInit {
 
   constructor(private userService: UserService,
               private formBuilder: FormBuilder,
-              private validator: RegistrationValidationService) {
+              private validator: RegistrationValidationService,
+              private route: Router) {
   }
 
   ngOnInit() {
@@ -40,11 +42,10 @@ export class RegistrationComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.registerForm.valid) {
-      alert('Thanks for registering!');
       this.userService.addUser(this.registerForm.value).subscribe(data => {
         data = this.registerForm;
         console.log('Your registration has been accepted', data);
-        this.registerForm.reset();
+        this.route.navigateByUrl('/log');
       });
     }
   }
