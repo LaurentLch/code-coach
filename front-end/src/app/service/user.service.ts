@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {User} from '../model/user';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {Observable, of} from 'rxjs';
+import {delay, find, map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +35,10 @@ export class UserService {
     return this.http.get<User[]>(url).pipe(map(response => response));
   }
 
+  getByEmail(email: string): Observable<User | undefined> {
+    const url = `${this.backendUrl}/users/${email}`;
+    return this.http.get<User>(url).pipe(map(response => response));
+  }
 
   // getCoachInfo(coachInfoId: number |undefined) {
   //   const url = `${this.backendUrl}/coach_infos/${coachInfoId}`;

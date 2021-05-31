@@ -14,7 +14,9 @@ export class RegistrationComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', Validators.compose([Validators.required, this.validator.patternValidatorEmail()])],
-      password: ['', Validators.compose([Validators.required, this.validator.patternValidatorPassword()])],
+      password: ['', Validators.compose([Validators.required,
+        this.validator.patternValidatorPassword(),
+        this.validator.existingEmailValidator()])],
       confirmPassword: ['', [Validators.required]],
     },
     {
