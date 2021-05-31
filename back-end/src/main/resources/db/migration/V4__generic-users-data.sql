@@ -10,3 +10,5 @@ INSERT INTO users(id, "email", "first_name", "last_name", "password", "role", co
 values ('6', 'admin1@gmail.com', 'admin1', 'admin1lastname', 'P4ssword', 'Admin', '1');
 INSERT INTO users(id, "email", "first_name", "last_name", "password", "role", coach_info_id)
 values ('7', 'admin2@gmail.com', 'admin2', 'admin2lastname', 'P4ssword', 'Admin', '1');
+
+
