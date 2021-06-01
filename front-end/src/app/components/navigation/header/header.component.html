@@ -16,7 +16,10 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
           <a class="nav-link active" aria-current="page" routerLink="/home"> <button class="btn btn-outline-info" type="submit"><i class="fa fa-home" aria-hidden="true"></i> Home</button></a>
-          <a class="nav-link" routerLink="/user/{{id}}/profile-information"><button class="btn btn-outline-info" type="submit"><i class="fa fa-user" aria-hidden="true"></i>User Profile</button></a>
+          <a *ngIf="authenticationService.isLoggedIn()" class="nav-link" routerLink="/user/{{id}}/profile-information">
+            <button class="btn btn-outline-info" type="submit"><i class="fa fa-user" aria-hidden="true"></i>User Profile
+            </button>
+          </a>
           <a class="nav-link" routerLink="coaches"><button class="btn btn-outline-info" type="submit"><i class="fa fa-user" aria-hidden="true"></i>Find Coach</button></a>
           <a *ngIf="!authenticationService.isLoggedIn()" class="nav-link" routerLink="/registration"><button class="btn btn-outline-info" type="submit">Register</button></a>
           <a *ngIf="authenticationService.isLoggedIn()" class="nav-link" routerLink="/home"><button class="btn btn-outline-info" type="submit" (click)="authenticationService.logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>Log-Out</button></a>

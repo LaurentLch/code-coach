@@ -11,7 +11,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class FindCoachComponent implements OnInit {
   userList: any;
-  // id: number | undefined;
+  id: number | undefined;
   email: any;
   searchText: any;
 
@@ -33,5 +33,9 @@ export class FindCoachComponent implements OnInit {
     this.userService.getUserList().subscribe(data => {
       this.userList = data;
     });
+  }
+
+  selectUser(user: User) {
+    this.id = user.id;
   }
 }

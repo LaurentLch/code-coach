@@ -27,7 +27,7 @@ import {FindCoachComponent} from './components/user/Find-Coach/find-coach/find-c
 import {LoginComponent} from './components/user/login/login.component';
 import {AuthenticationInterceptor} from './service/authentication.interceptor';
 import {NameFilterPipe} from './pipe/name-filter.pipe';
-import { CoachProfileComponent } from './components/user/Find-Coach/coach-profile/coach-profile.component';
+import {CoachProfileComponent} from './components/user/Find-Coach/coach-profile/coach-profile.component';
 
 
 // @ts-ignore
@@ -45,7 +45,7 @@ import { CoachProfileComponent } from './components/user/Find-Coach/coach-profil
     FindCoachComponent,
     LoginComponent,
     NameFilterPipe,
-    CoachProfileComponent,
+    CoachProfileComponent
   ],
   imports: [
     BrowserModule,
