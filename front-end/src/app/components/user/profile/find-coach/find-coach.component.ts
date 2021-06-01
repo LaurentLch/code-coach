@@ -12,6 +12,7 @@ import {ActivatedRoute} from '@angular/router';
 export class FindCoachComponent implements OnInit {
   userList: User[] | undefined;
   id: number | undefined;
+  email: any;
 
   constructor(private userService: UserService, private route: ActivatedRoute) {
     // @ts-ignore
