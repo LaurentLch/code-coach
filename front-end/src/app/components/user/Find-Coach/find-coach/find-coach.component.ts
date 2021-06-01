@@ -11,17 +11,17 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class FindCoachComponent implements OnInit {
   userList: any;
-  id: number | undefined;
+  // id: number | undefined;
   email: any;
   searchText: any;
 
   constructor(private userService: UserService, private route: ActivatedRoute) {
     // @ts-ignore
-    this.route.parent.paramMap.subscribe(params => {
-      // @ts-ignore
-      this.id = params.get('id');
+    // this.route.parent.paramMap.subscribe(params => {
+    //   // @ts-ignore
+    //   this.id = params.get('id');
       this.searchText = '';
-    });
+
   }
 
   ngOnInit(): void {

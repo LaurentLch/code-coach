@@ -23,10 +23,11 @@ import {ProfileComponent} from './components/user/profile/profile.component';
 import {BecomeCoachComponent} from './components/user/profile/become-coach/become-coach.component';
 import {HomeComponent} from './components/navigation/home/home.component';
 import {CoachSessionsComponent} from './components/user/profile/coach-sessions/coach-sessions.component';
-import {FindCoachComponent} from './components/user/profile/find-coach/find-coach.component';
+import {FindCoachComponent} from './components/user/Find-Coach/find-coach/find-coach.component';
 import {LoginComponent} from './components/user/login/login.component';
 import {AuthenticationInterceptor} from './service/authentication.interceptor';
 import {NameFilterPipe} from './pipe/name-filter.pipe';
+import { CoachProfileComponent } from './components/user/Find-Coach/coach-profile/coach-profile.component';
 
 
 // @ts-ignore
@@ -44,6 +45,7 @@ import {NameFilterPipe} from './pipe/name-filter.pipe';
     FindCoachComponent,
     LoginComponent,
     NameFilterPipe,
+    CoachProfileComponent,
   ],
   imports: [
     BrowserModule,
