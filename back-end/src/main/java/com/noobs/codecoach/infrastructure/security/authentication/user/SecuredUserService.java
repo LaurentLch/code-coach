@@ -83,4 +83,8 @@ public class SecuredUserService implements UserDetailsService {
     public PasswordChangeResultDto performPasswordChange(PasswordChangeRequestDto changeRequest) {
         return passwordResetService.performPasswordChange(changeRequest);
     }
+
+    public AccountExistsResponse checkIfAccountExists(AccountExistsRequest accountExistsRequest) {
+        return new AccountExistsResponse(accountService.existsByEmail(accountExistsRequest.getEmail()));
+    }
 }

@@ -62,6 +62,11 @@ public class SecuredUserController {
         return securedUserService.performPasswordChange(changeRequest);
     }
 
+    @PostMapping(path = "check-if-account-exists", consumes = "application/json", produces = "application/json")
+    public AccountExistsResponse checkIfAccountExists(@RequestBody AccountExistsRequest accountExistsRequest) {
+        return securedUserService.checkIfAccountExists(accountExistsRequest);
+    }
+
     @ExceptionHandler(IllegalStateException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public void invalidFieldsException(IllegalStateException ex, HttpServletResponse response) throws IOException {
