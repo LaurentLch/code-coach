@@ -2,18 +2,18 @@ package com.noobs.codecoach.service.dto.response;
 
 public class SimpleUserDTO {
 
-    private long id;
+    private int id;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
     private String role;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public SimpleUserDTO setId(long id) {
+    public SimpleUserDTO setId(int id) {
         this.id = id;
         return this;
     }

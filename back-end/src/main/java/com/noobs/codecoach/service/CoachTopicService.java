@@ -28,4 +28,6 @@ public class CoachTopicService {
         CoachTopic createdCoachTopic = coachTopicRepository.save(coachTopic);
         return coachTopicMapper.toDto(createdCoachTopic);
     }
+
+
 }

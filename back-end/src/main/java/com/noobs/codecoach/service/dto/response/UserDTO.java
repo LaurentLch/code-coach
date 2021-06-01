@@ -5,7 +5,7 @@ import java.util.List;
 
 public class UserDTO {
 
-    private long id;
+    private int id;
     private String firstName;
     private String lastName;
     private String email;
@@ -15,11 +15,11 @@ public class UserDTO {
 //    private List<String> trainingClass;
 
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public UserDTO setId(long id) {
+    public UserDTO setId(int id) {
         this.id = id;
         return this;
     }
