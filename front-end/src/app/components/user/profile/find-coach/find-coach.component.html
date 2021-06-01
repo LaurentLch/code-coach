@@ -1,6 +1,18 @@
+<!--SEARCH BAR-->
 <div class="container-fluid">
+  <div class="input-group">
+    <input [(ngModel)]="searchText"
+           type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+           aria-describedby="search-addon" />
+    <button type="button" class="btn btn-outline-info">search</button>
+  </div>
+</div>
+
+<!--COACH LIST-->
+<div class="container-fluid">
+  <br>
   <div class="row">
-    <div *ngFor="let user of userList">
+    <div *ngFor="let user of userList | nameFilter: searchText">
       <div *ngIf="user.role == 'Coach'">
         <h4>{{user.firstName}} {{user.lastName}}</h4>
         <div class="product-box">

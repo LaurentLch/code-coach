@@ -10,17 +10,19 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./find-coach.component.css']
 })
 export class FindCoachComponent implements OnInit {
-  userList: User[] | undefined;
+  userList: any;
   id: number | undefined;
+  email: any;
+  searchText: any;
 
   constructor(private userService: UserService, private route: ActivatedRoute) {
     // @ts-ignore
     this.route.parent.paramMap.subscribe(params => {
       // @ts-ignore
       this.id = params.get('id');
+      this.searchText = '';
     });
   }
-
 
   ngOnInit(): void {
     this.getUserList();

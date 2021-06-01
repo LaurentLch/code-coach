@@ -44,5 +44,6 @@ export class UserService {
   //   const url = `${this.backendUrl}/coach_infos/${coachInfoId}`;
   //   return this.http.get<CoachInfo>(url).pipe(map(response => response))
   // }
+
 }
 
