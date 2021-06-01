@@ -1,0 +1,131 @@
+<div class="container" *ngIf="user">
+  <div class="main-body">
+
+    <div class="row gutters-sm">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img src="assets/images/profile-picture.jpg" height="200px" alt="random picture">
+              <div class="mt-3">
+                <h4>{{user.firstName}} {{user.lastName}}</h4>
+                <p class="text-secondary mb-1">Role: {{user.role}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">First Name</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{user.firstName}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Last Name</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{user.lastName}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Email</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{user.email}}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row" *ngIf="user.role =='Coach'">
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-3">
+                  <h6 class="mb-0">Coach XP</h6>
+                </div>
+                <div class="col-9">
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 68%" aria-valuenow="25"
+                         aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-3">
+                  <h6 class="mb-0">Introduction</h6>
+                </div>
+                <div class="col-9">
+                  <p>{{user.coachInfoDTO.introduction}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-3">
+                  <h6 class="mb-0">Availability</h6>
+                </div>
+                <div class="col-9">
+                  <p>{{user.coachInfoDTO.availability}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row" *ngIf="user.role =='Coach'">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-6">
+                      <h5 class="mb-0">Coaching Topics</h5>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-3">
+                    <h5 class="mb-0">Topic Name</h5>
+                  </div>
+                  <div class="col-9">
+                    <h5 align="center">Level of Experience</h5>
+                  </div>
+                  <hr>
+                  <div *ngFor="let coachTopic of user.coachInfoDTO.coachTopicListDTO">
+                    <div class="row">
+                      <div class="col-3">
+                        <h6 class="mb-0">{{coachTopic.topicName}}</h6>
+                      </div>
+                      <div class="col-9">
+                        <h6 align="center">{{coachTopic.experienceLevel}}</h6>
+                      </div>
+                      <hr>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
