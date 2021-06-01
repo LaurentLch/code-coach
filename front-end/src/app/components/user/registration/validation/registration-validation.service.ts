@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {AbstractControl, AsyncValidatorFn, ValidatorFn} from '@angular/forms';
 import {Observable, of} from 'rxjs';
-import {map, debounceTime, take, switchMap} from 'rxjs/operators';
+import {map, debounceTime, take, switchMap, tap} from 'rxjs/operators';
 import {UserService} from '../../../../service/user.service';
 
 
@@ -32,23 +32,23 @@ export class RegistrationValidationService {
       | Observable<{ [key: string]: any } | null> => {
       if (isEmptyInputValue(control.value)) {
         return of(null);
-      } else if (control.value === initialEmail) {
-        return of(null);
-      } else {
-        return control.valueChanges.pipe(
-          debounceTime(500),
-          take(1),
-          switchMap(_ =>
-            this.userService
-              .getByEmail(control.value)
-              .pipe(
-                map(user =>
-                  user ? { existingEmail: { value: control.value } } : null
-                )
-              )
-          )
-        );
       }
+      if (control.value === initialEmail) {
+        return of(null);
+      }
+      return control.valueChanges.pipe(
+        debounceTime(500),
+        take(1),
+        switchMap(_ =>
+          this.userService
+            .getByEmail(control.value)
+            .pipe(
+              map(user =>
+                user.existsByEmail ? {existingEmail: {value: control.value}} : null
+              )
+            )
+        )
+      );
     };
   }
 

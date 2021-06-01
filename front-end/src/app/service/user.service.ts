@@ -32,12 +32,12 @@ export class UserService {
 
   getUserList(id: number): Observable<User[]> {
     const url = `${this.backendUrl}/users/user-list`;
-    return this.http.get<User[]>(url).pipe(map(response => response));
+    return this.http.get<User[]>(url);
   }
 
-  getByEmail(email: string): Observable<User | undefined> {
-    const url = `${this.backendUrl}/users/${email}`;
-    return this.http.get<User>(url).pipe(map(response => response));
+  getByEmail(email: string): Observable<any> {
+    const url = `${this.backendUrl}/security/account/check-if-account-exists`;
+    return this.http.post<User>(url, {email});
   }
 
   // getCoachInfo(coachInfoId: number |undefined) {
