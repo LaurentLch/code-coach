@@ -16,7 +16,7 @@ public class AuthorizationService {
         this.accountService = accountService;
     }
 
-    public boolean canAccessProfile(Authentication authentication, long profileIdentifier) {
+    public boolean canAccessProfile(Authentication authentication, int profileIdentifier) {
         return authentication.getAuthorities().contains(ADMIN) || accountService.findByEmail(authentication.getName()).map(Account::getId).map(id -> id.equals(profileIdentifier)).orElse(false);
     }
 
@@ -24,7 +24,7 @@ public class AuthorizationService {
         return authentication.getAuthorities().contains(ADMIN);
     }
 
-    public boolean canAccessSession(Authentication authentication, long profileIdentifier) {
+    public boolean canAccessSession(Authentication authentication, int profileIdentifier) {
         return canAccessProfile(authentication, profileIdentifier);
     }
 }

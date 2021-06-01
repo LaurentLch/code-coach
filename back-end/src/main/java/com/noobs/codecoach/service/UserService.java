@@ -44,14 +44,14 @@ public class UserService implements AccountService {
         return simpleUserMapper.toDto(createdUser);
     }
 
-    public UserDTO getUserById(long id) {
+    public UserDTO getUserById(int id) {
         if (userRepository.getUserById(id) == null) {
             throw new IllegalArgumentException("Id is invalid");
         }
         return userMapper.toDto(userRepository.getUserById(id));
     }
 
-    public void updateRoleToCoach(long id) {
+    public void updateRoleToCoach(int id) {
         User user = userRepository.getUserById(id);
         user.setRole(Role.COACH.getRoleName());
         userRepository.save(user);
@@ -60,6 +60,16 @@ public class UserService implements AccountService {
     public List<UserDTO> getAllUsers(){
         return userRepository.findAll().stream().map(userMapper::toDto).collect(Collectors.toList());
     }
+
+    public void editProfileInformation(int id, CreateSimpleUserDTO createSimpleUserDTO) {
+        User users = userRepository.getUserById(id);
+        users.setFirstName(createSimpleUserDTO.getFirstName());
+        users.setLastName(createSimpleUserDTO.getLastName());
+        users.setEmail(createSimpleUserDTO.getEmail());
+        users.setPassword(createSimpleUserDTO.getPassword());
+        users.setRole(createSimpleUserDTO.getRole());
+    }
+
 
     @Override
     public Optional<User> findByEmail(String userName) {

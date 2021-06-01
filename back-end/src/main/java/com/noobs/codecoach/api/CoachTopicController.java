@@ -4,7 +4,10 @@ import com.noobs.codecoach.service.CoachTopicService;
 import com.noobs.codecoach.service.dto.request.CreateCoachTopicDTO;
 import com.noobs.codecoach.service.dto.response.CoachTopicDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/coach-topics", produces = "application/json")
@@ -21,4 +24,6 @@ public class CoachTopicController {
     public CoachTopicDTO createCoachTopic(@RequestBody CreateCoachTopicDTO createCoachTopicDTO) {
         return coachTopicService.createCoachTopic(createCoachTopicDTO);
    }
+
+
 }

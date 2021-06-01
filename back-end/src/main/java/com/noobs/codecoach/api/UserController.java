@@ -1,5 +1,6 @@
 package com.noobs.codecoach.api;
 
+import com.noobs.codecoach.domain.entity.User;
 import com.noobs.codecoach.service.dto.request.CreateSimpleUserDTO;
 import com.noobs.codecoach.service.dto.request.CreateUserDTO;
 
@@ -11,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -24,7 +26,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping(consumes = "application/json")
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public void createSimpleUser(@RequestBody CreateSimpleUserDTO createSimpleUserDTO) {
         userService.createSimpleUser(createSimpleUserDTO);
     }
@@ -41,9 +43,14 @@ public class UserController {
         userService.updateRoleToCoach(id);
     }
 
-    @GetMapping(path="/user-list", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<UserDTO> getAllUsers(){
+    @GetMapping(path = "/user-list", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<UserDTO> getAllUsers() {
         return userService.getAllUsers();
     }
 
+    @PutMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void editProfileInformation (@PathVariable int id, @RequestBody CreateSimpleUserDTO createSimpleUserDto){
+        userService.editProfileInformation(id, createSimpleUserDto);
+    }
 }

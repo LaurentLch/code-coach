@@ -5,7 +5,7 @@ import com.noobs.codecoach.infrastructure.security.authentication.user.Authority
 import java.util.List;
 
 public interface Account {
-    Long getId();
+    int getId();
 
     String getEmail();
 
