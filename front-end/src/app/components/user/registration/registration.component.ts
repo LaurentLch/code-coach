@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-
-import {FormBuilder} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../../service/user.service';
+import {RegistrationValidationService} from './validation/registration-validation.service';
 import {Router} from '@angular/router';
-
 
 @Component({
   selector: 'app-registration',
@@ -12,30 +11,43 @@ import {Router} from '@angular/router';
 })
 
 export class RegistrationComponent implements OnInit {
-  createRegistrationForm = this.formBuilder.group({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: ''
-  });
+  registerForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', Validators.compose([Validators.required, this.validator.patternValidatorEmail()])],
+      password: ['', Validators.compose([Validators.required,
+        this.validator.patternValidatorPassword(),
+        this.validator.existingEmailValidator()])],
+      confirmPassword: ['', [Validators.required]],
+    },
+    {
+      validators: this.validator.MatchPassword('password', 'confirmPassword')
+    }
+  );
+  submitted = false;
 
   constructor(private userService: UserService,
               private formBuilder: FormBuilder,
+              private validator: RegistrationValidationService,
               private route: Router) {
   }
 
+  ngOnInit() {
+  }
+
+  get registerFormControl() {
+    return this.registerForm.controls;
+  }
 
   onSubmit() {
-    this.userService.addUser(this.createRegistrationForm.value).subscribe(data => {
-      data = this.createRegistrationForm;
-      console.log('Your registration has been accepted', data);
-      this.route.navigateByUrl('/log');
-    });
-  }
-
-  ngOnInit(): void {
+    this.submitted = true;
+    if (this.registerForm.valid) {
+      this.userService.addUser(this.registerForm.value).subscribe(data => {
+        data = this.registerForm;
+        console.log('Your registration has been accepted', data);
+        this.route.navigateByUrl('/log');
+      });
+    }
   }
 }
-
-
 
