@@ -34,11 +34,5 @@ export class UserService {
     const url = `${this.backendUrl}/users/user-list`;
     return this.http.get<User[]>(url).pipe(map(response => response));
   }
-
-
-  // getCoachInfo(coachInfoId: number |undefined) {
-  //   const url = `${this.backendUrl}/coach_infos/${coachInfoId}`;
-  //   return this.http.get<CoachInfo>(url).pipe(map(response => response))
-  // }
 }
 
