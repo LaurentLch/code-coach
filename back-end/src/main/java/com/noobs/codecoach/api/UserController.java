@@ -1,6 +1,5 @@
 package com.noobs.codecoach.api;
 
-import com.noobs.codecoach.domain.entity.User;
 import com.noobs.codecoach.service.dto.request.CreateSimpleUserDTO;
 import com.noobs.codecoach.service.dto.request.CreateUserDTO;
 

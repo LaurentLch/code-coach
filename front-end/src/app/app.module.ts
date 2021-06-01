@@ -26,7 +26,7 @@ import {CoachSessionsComponent} from './components/user/profile/coach-sessions/c
 import {FindCoachComponent} from './components/user/profile/find-coach/find-coach.component';
 import {LoginComponent} from './components/user/login/login.component';
 import {AuthenticationInterceptor} from './service/authentication.interceptor';
-import { NameFilterPipe } from './pipe/name-filter.pipe';
+import {NameFilterPipe} from './pipe/name-filter.pipe';
 
 
 // @ts-ignore
