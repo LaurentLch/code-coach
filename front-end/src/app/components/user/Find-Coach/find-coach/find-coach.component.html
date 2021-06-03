@@ -1,60 +1,63 @@
 <div *ngIf="!authenticationService.isLoggedIn()">
   <h5 class="text-center">Please log in or register to see the coaches</h5>
 </div>
-<!--SEARCH BAR-->
-<div *ngIf="userList" class="container-fluid">
 
-  <ng-multiselect-dropdown
-
-    [placeholder]="'select topics'"
-    [settings]="dropdownSettings"
-    [data]="topics"
-    [(ngModel)]="selectedItems"
-    (onSelect)="onItemSelect($event)"
-    (onSelectAll)="onSelectAll($event)">
-  </ng-multiselect-dropdown>
-
-  <div class="input-group">
-    <input [(ngModel)]="searchText"
-           type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-           aria-describedby="search-addon"/>
-    <button type="button" class="btn btn-outline-info">search</button>
+<div>
+  <div *ngIf="userList" class="container-fluid" style="margin: auto">
+    <div class="row search-items">
+      <div class="dropdownitem">
+        <ng-multiselect-dropdown
+          [placeholder]="'select topics'"
+          [settings]="dropdownSettings"
+          [data]="topics"
+          [(ngModel)]="selectedItems"
+          (onSelect)="onItemSelect($event)"
+          (onSelectAll)="onSelectAll($event)">
+        </ng-multiselect-dropdown>
+      </div>
+      <div class="input-group filter-input">
+        <input [(ngModel)]="searchText"
+               type="search" class="form-control rounded " placeholder="Search" aria-label="Search"
+               aria-describedby="search-addon"/>
+        <button type="button" class="btn btn-outline-info">search</button>
+      </div>
+    </div>
   </div>
-</div>
 
-<!--COACH LIST-->
-<div class="d-flex justify-content-between flex-fill">
-  <br>
-  <div class="row">
-    <div *ngFor="let user of userList | nameFilter: searchText | topicFilter: selectedItems">
-      <div class="coach-card col-md-5" *ngIf="user.role == 'Coach'">
-        <h4>{{user.firstName}} {{user.lastName}}</h4>
-        <div class="product-box">
-          <div class="card align-content-center">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-5">
-                  <img src="../../../../../assets/images/profile-picture.jpg" class="img-responsive">
-                  <a class="nav-link " routerLink="/coaches/{{id}}/profile-information">
-                    <button class="btn btn-outline-info coach-button" type="submit" (mouseover)="selectUser(user)"><i
-                      class="fa fa-user" aria-hidden="true">
-                    </i>See more
-                    </button>
-                  </a>
-                </div>
-                <div class="col-7">
-                  <div *ngFor="let coachTopic of user.coachInfoDTO.coachTopicListDTO">
-                    <div class="row">
-                      <div>
-                        <h6 class="mb-0">{{coachTopic.topicName}}</h6>
+  <!--COACH LIST-->
+  <div class="d-flex justify-content-center flex-fill">
+    <br>
+    <div class="row">
+      <div *ngFor="let user of userList | nameFilter: searchText | topicFilter: selectedItems">
+        <div class="coach-card col-md-5" *ngIf="user.role == 'Coach'">
+          <h4>{{user.firstName}} {{user.lastName}}</h4>
+          <div class="product-box">
+            <div class="card align-content-center">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-5">
+                    <img src="../../../../../assets/images/profile-picture.jpg" class="img-responsive">
+                    <a class="nav-link " routerLink="/coaches/{{id}}/profile-information">
+                      <button class="btn btn-outline-info coach-button" type="submit" (mouseover)="selectUser(user)"><i
+                        class="fa fa-user" aria-hidden="true">
+                      </i>See more
+                      </button>
+                    </a>
+                  </div>
+                  <div class="col-7">
+                    <div *ngFor="let coachTopic of user.coachInfoDTO.coachTopicListDTO">
+                      <div class="row">
+                        <div>
+                          <h6 class="mb-0">{{coachTopic.topicName}}</h6>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <hr>
-                  <div class="row">
-                    <div class="pull-right">
-                      <a href="#" class="btn btn-info"><a href="mailto:{{user.email}}">Send Message</a></a>
+                    <hr>
+                    <div class="row">
+                      <div class="pull-right">
+                        <a href="#" class="btn btn-info"><a href="mailto:{{user.email}}">Send Message</a></a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -65,4 +68,6 @@
       </div>
     </div>
   </div>
+
 </div>
+<!--SEARCH BAR-->

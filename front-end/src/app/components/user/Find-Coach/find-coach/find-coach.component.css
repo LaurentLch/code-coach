@@ -7,3 +7,18 @@
   bottom: 0;
 }
 
+.card-body {
+  display: inline-block;
+}
+
+.filter-input {
+  width: 30vw;
+}
+
+.dropdownitem {
+  width: 30vw;
+}
+
+.search-items {
+  margin: auto;
+}
