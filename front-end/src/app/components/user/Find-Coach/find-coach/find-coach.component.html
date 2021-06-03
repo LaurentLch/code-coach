@@ -1,4 +1,4 @@
-<div *ngIf="!userList">
+<div *ngIf="!authenticationService.isLoggedIn()">
   <h5 class="text-center">Please log in or register to see the coaches</h5>
 </div>
 <!--SEARCH BAR-->

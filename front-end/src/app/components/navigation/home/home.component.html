@@ -24,7 +24,10 @@
       <p> You start with your passion and knowledge. Then choose a promising topic.
         The way that you teach — what you bring to it — is up to you.</p>
       <div>
-        <button class="btn btn-outline-info"><a class="home-btn" href="#">BECOME A COACH</a></button>
+        <button *ngIf="!authenticationService.isLoggedIn()" routerLink="/registration" class="btn btn-outline-info"><a
+          class="home-btn" href="#">REGISTER</a></button>
+        <button *ngIf="authenticationService.isLoggedIn()" routerLink="/user/{{id}}/become-coach"
+                class="btn btn-outline-info"><a class="home-btn">BECOME A COACH</a></button>
         <br>
       </div>
     </div>
@@ -34,7 +37,7 @@
       <p>Top instructors from around the world teach millions of students on Code-Coach. We provide the tools and skills
         to teach what you love.</p>
       <div>
-        <button class="btn btn-outline-info"><a class="home-btn" href="#">FIND A COACH</a></button>
+        <button routerLink="/coaches" class="btn btn-outline-info"><a class="home-btn">FIND A COACH</a></button>
         <br>
       </div>
     </div>

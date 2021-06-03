@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {User} from '../../../model/user';
 import {UserService} from '../../../service/user.service';
 import {ActivatedRoute} from '@angular/router';
+import {AuthenticationService} from '../../../service/authentication.service';
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +16,7 @@ export class ProfileComponent implements OnInit {
   userList: User[] | undefined;
 
 
-  constructor(private userService: UserService, private route: ActivatedRoute) {
+  constructor(private userService: UserService, private route: ActivatedRoute, public authenticationService: AuthenticationService) {
   }
 
   ngOnInit(): void {

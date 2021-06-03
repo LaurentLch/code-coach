@@ -4,6 +4,7 @@ import {User} from '../../../../model/user';
 import {ActivatedRoute} from '@angular/router';
 import {IDropdownSettings} from 'ng-multiselect-dropdown';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {AuthenticationService} from '../../../../service/authentication.service';
 
 
 @Component({
@@ -23,15 +24,15 @@ export class FindCoachComponent implements OnInit {
   selectedItems: Array<any> = [];
   dropdownSettings: any = {};
 
-  constructor(private userService: UserService, private fb: FormBuilder) {
+  constructor(private userService: UserService, private fb: FormBuilder, public authenticationService: AuthenticationService) {
     this.searchText = '';
     this.topics = [
       {topic_id: 1, topic: 'Javascript'},
       {topic_id: 2, topic: 'Java'},
       {topic_id: 3, topic: 'HTML'},
       {topic_id: 4, topic: 'CSS'},
-      {topic_id: 5, topic: 'Coach Topic 5'},
-      {topic_id: 6, topic: 'Coach Topic 6'}
+      {topic_id: 5, topic: 'Angular'},
+      {topic_id: 6, topic: 'Maven'}
     ];
     this.selectedItems = [];
     this.dropdownSettings = {

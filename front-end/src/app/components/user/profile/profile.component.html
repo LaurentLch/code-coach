@@ -1,4 +1,4 @@
-<div *ngIf="!user">
+<div *ngIf="!authenticationService.isLoggedIn()">
   <h5 class="text-center">Please log in or register to see your profile</h5>
 </div>
 <div *ngIf="user">
@@ -6,7 +6,7 @@
   <div class="panel-heading">
     <div class="panel-title text-center">
       <h1 class="title">My Profile</h1>
-      <hr />
+      <hr/>
     </div>
   </div>
 
