@@ -23,29 +23,29 @@
 </div>
 
 <!--COACH LIST-->
-<div class="container-fluid">
+<div class="d-flex justify-content-between flex-fill">
   <br>
   <div class="row">
     <div *ngFor="let user of userList | nameFilter: searchText | topicFilter: selectedItems">
-      <div *ngIf="user.role == 'Coach'">
+      <div class="coach-card col-md-5" *ngIf="user.role == 'Coach'">
         <h4>{{user.firstName}} {{user.lastName}}</h4>
         <div class="product-box">
           <div class="card align-content-center">
             <div class="card-body">
               <div class="row">
-                <div class="col-6">
+                <div class="col-5">
                   <img src="../../../../../assets/images/profile-picture.jpg" class="img-responsive">
-                  <a class="nav-link" routerLink="/coaches/{{id}}/profile-information">
-                    <button class="btn btn-outline-info" type="submit" (mouseover)="selectUser(user)"><i
+                  <a class="nav-link " routerLink="/coaches/{{id}}/profile-information">
+                    <button class="btn btn-outline-info coach-button" type="submit" (mouseover)="selectUser(user)"><i
                       class="fa fa-user" aria-hidden="true">
                     </i>See more
                     </button>
                   </a>
                 </div>
-                <div class="col-6">
+                <div class="col-7">
                   <div *ngFor="let coachTopic of user.coachInfoDTO.coachTopicListDTO">
                     <div class="row">
-                      <div class="col-3">
+                      <div>
                         <h6 class="mb-0">{{coachTopic.topicName}}</h6>
                       </div>
                     </div>
