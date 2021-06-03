@@ -3,6 +3,17 @@
 </div>
 <!--SEARCH BAR-->
 <div *ngIf="userList" class="container-fluid">
+
+  <ng-multiselect-dropdown
+
+    [placeholder]="'select topics'"
+    [settings]="dropdownSettings"
+    [data]="topics"
+    [(ngModel)]="selectedItems"
+    (onSelect)="onItemSelect($event)"
+    (onSelectAll)="onSelectAll($event)">
+  </ng-multiselect-dropdown>
+
   <div class="input-group">
     <input [(ngModel)]="searchText"
            type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
@@ -15,7 +26,7 @@
 <div class="container-fluid">
   <br>
   <div class="row">
-    <div *ngFor="let user of userList | nameFilter: searchText">
+    <div *ngFor="let user of userList | nameFilter: searchText | topicFilter: selectedItems">
       <div *ngIf="user.role == 'Coach'">
         <h4>{{user.firstName}} {{user.lastName}}</h4>
         <div class="product-box">
@@ -32,11 +43,14 @@
                   </a>
                 </div>
                 <div class="col-6">
-                  <div class="row">
-                    <p>Coach Topic 1</p>
-                    <p>Coach Topic 2</p>
-                    <p>Coach Topic 3</p>
+                  <div *ngFor="let coachTopic of user.coachInfoDTO.coachTopicListDTO">
+                    <div class="row">
+                      <div class="col-3">
+                        <h6 class="mb-0">{{coachTopic.topicName}}</h6>
+                      </div>
+                    </div>
                   </div>
+
                   <hr>
                   <div class="row">
                     <div class="pull-right">

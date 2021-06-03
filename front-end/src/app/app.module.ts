@@ -28,6 +28,8 @@ import {LoginComponent} from './components/user/login/login.component';
 import {AuthenticationInterceptor} from './service/authentication.interceptor';
 import {NameFilterPipe} from './pipe/name-filter.pipe';
 import {CoachProfileComponent} from './components/user/Find-Coach/coach-profile/coach-profile.component';
+import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
+import {TopicFilterPipe} from './pipe/topic-filter.pipe';
 
 
 // @ts-ignore
@@ -45,14 +47,16 @@ import {CoachProfileComponent} from './components/user/Find-Coach/coach-profile/
     FindCoachComponent,
     LoginComponent,
     NameFilterPipe,
-    CoachProfileComponent
+    CoachProfileComponent,
+    TopicFilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthenticationInterceptor, multi: true}

@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../../../service/user.service';
 import {User} from '../../../../model/user';
 import {ActivatedRoute} from '@angular/router';
+import {IDropdownSettings} from 'ng-multiselect-dropdown';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 
 @Component({
@@ -14,14 +16,33 @@ export class FindCoachComponent implements OnInit {
   id: number | undefined;
   email: any;
   searchText: any;
+  disabled = false;
+  ShowFilter = false;
+  limitSelection = false;
+  topics: Array<any> = [];
+  selectedItems: Array<any> = [];
+  dropdownSettings: any = {};
 
-  constructor(private userService: UserService, private route: ActivatedRoute) {
-    // @ts-ignore
-    // this.route.parent.paramMap.subscribe(params => {
-    //   // @ts-ignore
-    //   this.id = params.get('id');
-      this.searchText = '';
-
+  constructor(private userService: UserService, private fb: FormBuilder) {
+    this.searchText = '';
+    this.topics = [
+      {topic_id: 1, topic: 'Javascript'},
+      {topic_id: 2, topic: 'Java'},
+      {topic_id: 3, topic: 'HTML'},
+      {topic_id: 4, topic: 'CSS'},
+      {topic_id: 5, topic: 'Coach Topic 5'},
+      {topic_id: 6, topic: 'Coach Topic 6'}
+    ];
+    this.selectedItems = [];
+    this.dropdownSettings = {
+      singleSelection: false,
+      textField: 'topic',
+      idField: 'topic_id',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 10,
+      allowSearchFilter: true
+    };
   }
 
   ngOnInit(): void {
@@ -37,5 +58,26 @@ export class FindCoachComponent implements OnInit {
 
   selectUser(user: User) {
     this.id = user.id;
+  }
+
+  onItemSelect(item: any) {
+    console.log('onItemSelect', item);
+  }
+
+  onSelectAll(items: any) {
+    console.log('onSelectAll', items);
+  }
+
+  toogleShowFilter() {
+    this.ShowFilter = !this.ShowFilter;
+    this.dropdownSettings = Object.assign({}, this.dropdownSettings, {allowSearchFilter: this.ShowFilter});
+  }
+
+  handleLimitSelection() {
+    if (this.limitSelection) {
+      this.dropdownSettings = Object.assign({}, this.dropdownSettings, {limitSelection: 2});
+    } else {
+      this.dropdownSettings = Object.assign({}, this.dropdownSettings, {limitSelection: null});
+    }
   }
 }
