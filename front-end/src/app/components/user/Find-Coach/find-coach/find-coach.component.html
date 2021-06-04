@@ -2,9 +2,9 @@
   <h5 class="text-center">Please log in or register to see the coaches</h5>
 </div>
 
-<div>
-  <div *ngIf="userList" class="container-fluid" style="margin: auto">
-    <div class="row search-items">
+<div class="">
+  <div *ngIf="userList" class="" style="">
+    <div class="row search-items justify-content-center">
       <div class="dropdownitem">
         <ng-multiselect-dropdown
           [placeholder]="'select topics'"
@@ -25,7 +25,7 @@
   </div>
 
   <!--COACH LIST-->
-  <div class="d-flex justify-content-center flex-fill">
+  <div class="d-flex justify-content-end flex-fill">
     <br>
     <div class="row">
       <div *ngFor="let user of userList | nameFilter: searchText | topicFilter: selectedItems">
@@ -56,7 +56,8 @@
                     <hr>
                     <div class="row">
                       <div class="pull-right">
-                        <a href="#" class="btn btn-info"><a href="mailto:{{user.email}}">Send Message</a></a>
+                        <a href="#" class="btn btn-info "><a class="send-message" href="mailto:{{user.email}}">Send
+                          Message</a></a>
                       </div>
                     </div>
                   </div>

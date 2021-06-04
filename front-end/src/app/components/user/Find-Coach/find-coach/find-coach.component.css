@@ -3,12 +3,11 @@
 }
 
 .coach-button {
-  position: relative;
-  bottom: 0;
+
 }
 
 .card-body {
-  display: inline-block;
+
 }
 
 .filter-input {
@@ -20,5 +19,10 @@
 }
 
 .search-items {
-  margin: auto;
+  margin-bottom: 30px;
+}
+
+.send-message {
+  text-decoration: none;
+  color: white;
 }
