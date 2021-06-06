@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/back-end/code-coach.iml" filepath="$PROJECT_DIR$/back-end/code-coach.iml" />
+      <module fileurl="file://$PROJECT_DIR$/back-end/code-coachInfo.iml" filepath="$PROJECT_DIR$/back-end/code-coachInfo.iml" />
     </modules>
   </component>
 </project>

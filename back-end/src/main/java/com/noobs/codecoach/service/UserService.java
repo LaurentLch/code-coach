@@ -66,7 +66,7 @@ public class UserService implements AccountService {
         users.setFirstName(createSimpleUserDTO.getFirstName());
         users.setLastName(createSimpleUserDTO.getLastName());
         users.setEmail(createSimpleUserDTO.getEmail());
-        users.setPassword(createSimpleUserDTO.getPassword());
+        users.setPassword(passwordEncoder.encode(createSimpleUserDTO.getPassword()));
         users.setRole(createSimpleUserDTO.getRole());
     }
 
