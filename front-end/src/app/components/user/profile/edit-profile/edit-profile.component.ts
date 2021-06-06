@@ -12,6 +12,8 @@ export class EditProfileComponent implements OnInit {
 
   user: User | undefined;
   id: number | undefined;
+  show = false;
+  buttonName:any = 'Edit';
 
   constructor(private userService: UserService, private route: ActivatedRoute) {
     // @ts-ignore
@@ -28,6 +30,16 @@ export class EditProfileComponent implements OnInit {
   getUser(): void {
     // @ts-ignore
     this.userService.getUser(this.id).subscribe(user => this.user = user);
+  }
+
+  editProfile() {
+    this.show = !this.show;
+
+    // CHANGE THE NAME OF THE BUTTON.
+    if(this.show)
+      this.buttonName = 'Save';
+    else
+      this.buttonName = 'Edit';
   }
 
 }
