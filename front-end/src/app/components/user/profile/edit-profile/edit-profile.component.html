@@ -1,1 +1,26 @@
-<p>edit-profile works!</p>
+<div class="container" *ngIf="user">
+  <div id="detailsInPlainText">
+    <h1>Personal details</h1>
+    <div class="border" style="border-radius: 5px; padding: 1em">
+      <div class="row" style="padding: 0.5em">
+        <div class="col-3"><b>Firstname: </b></div>
+        <div class="col-3"> {{user.firstName}} </div>
+      </div>
+      <div class="row" style="padding: 0.5em">
+        <div class="col-3"><b> Lastname: </b></div>
+        <div class="col-3"> {{user.lastName}} </div>
+      </div>
+      <div class="row" style="padding: 0.5em">
+        <div class="col-3"><b> Email: </b></div>
+        <div class="col-3"> {{user.email}} </div>
+      </div>
+      <div class="row" style="padding: 0.5em">
+        <div class="col-3"><b> Password: </b></div>
+        <div class="col-8"> **********</div>
+        <div class="col-1">
+          <input type="button" class="btn btn-outline-danger" value="Edit">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
