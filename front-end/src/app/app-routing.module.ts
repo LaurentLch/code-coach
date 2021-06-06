@@ -12,6 +12,7 @@ import {CoachSessionsComponent} from './components/user/profile/coach-sessions/c
 import {FindCoachComponent} from './components/user/Find-Coach/find-coach/find-coach.component';
 import {LoginComponent} from './components/user/login/login.component';
 import {CoachProfileComponent} from './components/user/Find-Coach/coach-profile/coach-profile.component';
+import {EditProfileComponent} from './components/user/profile/edit-profile/edit-profile.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
     children: [
       {path: 'profile-information', component: ProfileInformationComponent},
       {path: 'become-coach', component: BecomeCoachComponent},
-      {path: 'coach-sessions', component: CoachSessionsComponent}
+      {path: 'coach-sessions', component: CoachSessionsComponent},
+      {path: 'edit-profile', component: EditProfileComponent}
     ]
   }
 ];

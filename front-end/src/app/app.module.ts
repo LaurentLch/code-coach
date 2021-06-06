@@ -30,6 +30,7 @@ import {NameFilterPipe} from './pipe/name-filter.pipe';
 import {CoachProfileComponent} from './components/user/Find-Coach/coach-profile/coach-profile.component';
 import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 import {TopicFilterPipe} from './pipe/topic-filter.pipe';
+import { EditProfileComponent } from './components/user/profile/edit-profile/edit-profile.component';
 
 
 // @ts-ignore
@@ -48,7 +49,8 @@ import {TopicFilterPipe} from './pipe/topic-filter.pipe';
     LoginComponent,
     NameFilterPipe,
     CoachProfileComponent,
-    TopicFilterPipe
+    TopicFilterPipe,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
