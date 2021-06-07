@@ -55,20 +55,19 @@ export class EditProfileComponent implements OnInit {
     this.submitted = true;
     if (this.editForm.valid) {
       console.log('succes2')
-      // this.userService.editUser(this.id, this.editForm.value).subscribe(data => {
-      //   data = this.editForm;
-      //   console.log('Your registration has been accepted', data);
-      //   // this.editProfile()
-      // });
-      // const partOne = document.getElementById('detailsInPlainText');
-      // const partTwo = document.getElementById('detailsInForm');
-      //
-      // // @ts-ignore
-      // partOne.style.display = 'block';
-      // // @ts-ignore
-      // partTwo.style.display = 'none';
-      //
-      // this.buttonName = 'Edit';
+      this.userService.editUser(this.id, this.editForm.value).subscribe(data => {
+        data = this.editForm;
+        console.log('Your registration has been accepted', data);
+      });
+      const partOne = document.getElementById('detailsInPlainText');
+      const partTwo = document.getElementById('detailsInForm');
+
+      // @ts-ignore
+      partOne.style.display = 'block';
+      // @ts-ignore
+      partTwo.style.display = 'none';
+
+      this.buttonName = 'Edit';
     } else {
       console.log('fail2')
     }
