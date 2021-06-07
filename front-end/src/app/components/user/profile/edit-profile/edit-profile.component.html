@@ -23,4 +23,38 @@
       </div>
     </div>
   </div>
+  <div id="detailsInForm" style="display: none">
+    <h1>Personal details</h1>
+    <div class="border" style="border-radius: 5px; padding: 1em">
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="row" style="padding: 0.5em">
+          <div class="col-3"><b>Firstname: </b></div>
+          <div class="col-3">
+            <input type="text" class="form-control" formControlName="firstName" value="{{user.firstName}}" id="firstName">
+          </div>
+        </div>
+        <div class="row" style="padding: 0.5em">
+          <div class="col-3"><b> Lastname: </b></div>
+          <div class="col-3">
+            <input type="text" class="form-control" formControlName="lastName" value="{{user.lastName}}" id="Lastname">
+          </div>
+        </div>
+        <div class="row" style="padding: 0.5em">
+          <div class="col-3"><b> Email: </b></div>
+          <div class="col-3">
+            <input type="text" class="form-control" formControlName="email" value="{{user.email}}" id="Email">
+          </div>
+        </div>
+        <div class="row" style="padding: 0.5em">
+          <div class="col-3"><b> Password: </b></div>
+          <div class="col-8">
+            <input type="password" class="form-control" formControlName="password" value="{{user.password}}" placeholder="**********" id="Password">
+          </div>
+          <div class="col-1">
+            <input type="button" class="btn btn-outline-danger" value="{{buttonName}}" (click)="onSubmit()">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

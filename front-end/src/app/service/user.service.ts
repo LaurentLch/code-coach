@@ -20,7 +20,11 @@ export class UserService {
     return this.http.post(`${this.backendUrl}/security/account`, user);
   }
 
-  getUser(id: number): Observable<User> {
+  editUser(id: number|undefined, user: User | undefined) {
+    return this.http.put(`${this.backendUrl}/users/${id}`, user);
+  }
+
+  getUser(id: any): Observable<User> {
     const url = `${this.backendUrl}/users/${id}`;
     return this.http.get<User>(url).pipe(map(response => response));
   }

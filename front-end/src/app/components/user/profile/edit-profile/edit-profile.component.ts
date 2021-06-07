@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../../../model/user';
 import {UserService} from '../../../../service/user.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FormBuilder, Validators} from '@angular/forms';
+import {RegistrationValidationService} from '../../registration/validation/registration-validation.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -10,12 +12,31 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class EditProfileComponent implements OnInit {
 
+  editForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', Validators.compose([Validators.required,
+        this.validator.patternValidatorEmail()]),
+        [this.validator.existingEmailValidator()]],
+      password: ['', Validators.compose([Validators.required,
+        this.validator.patternValidatorPassword(),
+        this.validator.existingEmailValidator()])],
+      confirmPassword: ['', [Validators.required]],
+    },
+    {
+      validators: this.validator.MatchPassword('password', 'confirmPassword')
+    }
+  );
+
+  submitted = false;
+
   user: User | undefined;
   id: number | undefined;
-  show = false;
-  buttonName:any = 'Edit';
+  buttonName: any = 'Edit';
 
-  constructor(private userService: UserService, private route: ActivatedRoute) {
+  constructor(private userService: UserService, private route: ActivatedRoute, private formBuilder: FormBuilder,
+              private validator: RegistrationValidationService,
+              private router: Router) {
     // @ts-ignore
     this.route.parent.paramMap.subscribe(params => {
       // @ts-ignore
@@ -27,19 +48,51 @@ export class EditProfileComponent implements OnInit {
     this.getUser();
   }
 
+  get editFormControl() {
+    return this.editForm.controls;
+  }
+
+  onSubmit() {
+    // this.submitted = true;
+    // if (this.editForm.valid) {
+    //   this.userService.editUser(this.id, this.editForm.value).subscribe(data => {
+    //     data = this.editForm;
+    //     console.log('Your registration has been accepted', data);
+    //     // this.editProfile()
+    //   });
+      const partOne = document.getElementById('detailsInPlainText');
+      const partTwo = document.getElementById('detailsInForm');
+
+      // @ts-ignore
+      partOne.style.display = 'block';
+      // @ts-ignore
+      partTwo.style.display = 'none';
+
+      this.buttonName = 'Edit';
+    // }
+  }
+
   getUser(): void {
-    // @ts-ignore
     this.userService.getUser(this.id).subscribe(user => this.user = user);
   }
 
-  editProfile() {
-    this.show = !this.show;
+  editUser(): void {
+    this.userService.editUser(this.id, this.user).subscribe(user => {
+      // @ts-ignore
+      return this.user = user;
+    })
+  }
 
-    // CHANGE THE NAME OF THE BUTTON.
-    if(this.show)
-      this.buttonName = 'Save';
-    else
-      this.buttonName = 'Edit';
+  editProfile() {
+    const partOne = document.getElementById('detailsInPlainText');
+    const partTwo = document.getElementById('detailsInForm');
+
+    // @ts-ignore
+    partOne.style.display = 'none';
+    // @ts-ignore
+    partTwo.style.display = 'block';
+
+    this.buttonName = 'Save';
   }
 
 }
