@@ -33,7 +33,7 @@
         <div class="row" style="padding: 0.5em">
           <div class="col-3"><b>Firstname: </b></div>
           <div class="col-3">
-            <input type="text" class="form-control" formControlName="firstName" value="{{user.firstName}}" id="firstName">
+            <input type="text" class="form-control" formControlName="firstName" placeholder="{{user.firstName}}" id="firstName">
 <!-- VALIDATION -->
             <span class="text-danger"
                   *ngIf="(editFormControl.firstName || submitted) && editFormControl.firstName.errors?.required">
@@ -45,7 +45,7 @@
         <div class="row" style="padding: 0.5em">
           <div class="col-3"><b> Lastname: </b></div>
           <div class="col-3">
-            <input type="text" class="form-control" formControlName="lastName" value="{{user.lastName}}" id="Lastname">
+            <input type="text" class="form-control" formControlName="lastName" placeholder="{{user.lastName}}" id="Lastname">
 <!-- VALIDATION -->
             <span class="text-danger" *ngIf="(editFormControl.lastName.touched || submitted) && editFormControl.lastName.errors?.required">
               LastName is required<br>
@@ -56,7 +56,7 @@
         <div class="row" style="padding: 0.5em">
           <div class="col-3"><b> Email: </b></div>
           <div class="col-3">
-            <input type="text" class="form-control" formControlName="email" value="{{user.email}}" id="Email">
+            <input type="text" class="form-control" formControlName="email" placeholder="{{user.email}}" id="Email">
 <!-- VALIDATION -->
             <span class="text-danger" *ngIf="(editFormControl.email.touched || submitted) && editFormControl.email.errors?.required">
               Email is required<br>
@@ -73,7 +73,7 @@
         <div class="row" style="padding: 0.5em">
           <div class="col-3"><b> Password: </b></div>
           <div class="col-8">
-            <input type="password" class="form-control" formControlName="password" value="{{user.password}}" placeholder="**********" id="Password">
+            <input type="password" class="form-control" formControlName="password" placeholder="**********" id="Password">
 <!-- VALIDATION -->
             <span class="text-danger" *ngIf="(editFormControl.password.touched || submitted) && editFormControl.password.errors?.required">
                                 Password is required<br>
@@ -87,7 +87,7 @@
         <div class="row" style="padding: 0.5em">
           <div class="col-3"><b> Confirm Password: </b></div>
           <div class="col-8">
-            <input type="password" class="form-control" formControlName="confirmPassword" value="{{user.password}}" placeholder="**********" id="confirmPassword">
+            <input type="password" class="form-control" formControlName="confirmPassword" placeholder="**********" placeholder="**********" id="confirmPassword">
 <!-- VALIDATION -->
             <span class="text-danger" *ngIf="(editFormControl.confirmPassword.touched || submitted)&& editFormControl.confirmPassword.errors?.required">
               Confirm Password is required<br>
@@ -101,7 +101,28 @@
             <input type="button" class="btn btn-outline-danger" value="{{buttonName}}" (click)="onSubmit()">
           </div>
         </div>
-
+      </form>
+    </div>
+  </div>
+<!-- COACH INFO FORM ############################################################################################### -->
+  <div id="coachInfoForm" *ngIf="user.role =='Coach'">
+    <h1>Coach Info</h1>
+    <div class="border" style="border-radius: 5px; padding: 1em">
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+<!-- INTRODUCTION -->
+        <div class="row" style="padding: 0.5em">
+          <div class="col-3"><b>Introduction: </b></div>
+          <div class="col-3">
+            <input type="text" class="form-control" formControlName="introduction" value="{{user.coachInfoDTO.introduction}}" id="introduction">
+          </div>
+        </div>
+<!-- AVAILABILITY -->
+        <div class="row" style="padding: 0.5em">
+          <div class="col-3"><b>Availability: </b></div>
+          <div class="col-3">
+            <input type="text" class="form-control" formControlName="availability" value="{{user.coachInfoDTO.availability}}" id="availability">
+          </div>
+        </div>
       </form>
     </div>
   </div>

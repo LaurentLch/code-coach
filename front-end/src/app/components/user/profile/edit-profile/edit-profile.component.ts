@@ -31,6 +31,7 @@ export class EditProfileComponent implements OnInit {
   user: User | undefined;
   id: number | undefined;
   buttonName: any = 'Edit';
+  buttonName2: any = 'Edit';
 
   constructor(private userService: UserService, private route: ActivatedRoute, private formBuilder: FormBuilder,
               private validator: RegistrationValidationService,
@@ -94,6 +95,18 @@ export class EditProfileComponent implements OnInit {
     partTwo.style.display = 'block';
 
     this.buttonName = 'Save';
+  }
+
+  editCoach() {
+    const partOne = document.getElementById('coachInfoInPlainText');
+    const partTwo = document.getElementById('coachInfoForm');
+
+    // @ts-ignore
+    partOne.style.display = 'none';
+    // @ts-ignore
+    partTwo.style.display = 'block';
+
+    this.buttonName2 = 'Save';
   }
 
 }
