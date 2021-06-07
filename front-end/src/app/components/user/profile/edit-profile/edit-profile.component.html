@@ -1,4 +1,5 @@
 <div class="container" *ngIf="user">
+<!-- TEXT ########################################################################################################## -->
   <div id="detailsInPlainText">
     <h1>Personal details</h1>
     <div class="border" style="border-radius: 5px; padding: 1em">
@@ -23,37 +24,84 @@
       </div>
     </div>
   </div>
+<!-- FORM ########################################################################################################## -->
   <div id="detailsInForm" style="display: none">
     <h1>Personal details</h1>
     <div class="border" style="border-radius: 5px; padding: 1em">
       <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+<!-- FIRSTNAME -->
         <div class="row" style="padding: 0.5em">
           <div class="col-3"><b>Firstname: </b></div>
           <div class="col-3">
             <input type="text" class="form-control" formControlName="firstName" value="{{user.firstName}}" id="firstName">
+<!-- VALIDATION -->
+            <span class="text-danger"
+                  *ngIf="(editFormControl.firstName || submitted) && editFormControl.firstName.errors?.required">
+              Name is required<br>
+            </span>
           </div>
         </div>
+<!-- LASTNAME -->
         <div class="row" style="padding: 0.5em">
           <div class="col-3"><b> Lastname: </b></div>
           <div class="col-3">
             <input type="text" class="form-control" formControlName="lastName" value="{{user.lastName}}" id="Lastname">
+<!-- VALIDATION -->
+            <span class="text-danger" *ngIf="(editFormControl.lastName.touched || submitted) && editFormControl.lastName.errors?.required">
+              LastName is required<br>
+            </span>
           </div>
         </div>
+<!-- EMAIL -->
         <div class="row" style="padding: 0.5em">
           <div class="col-3"><b> Email: </b></div>
           <div class="col-3">
             <input type="text" class="form-control" formControlName="email" value="{{user.email}}" id="Email">
+<!-- VALIDATION -->
+            <span class="text-danger" *ngIf="(editFormControl.email.touched || submitted) && editFormControl.email.errors?.required">
+              Email is required<br>
+            </span>
+            <span class="text-danger" *ngIf="(editFormControl.email.touched || submitted) && !editFormControl.email.errors?.required && editFormControl.email.errors?.invalidEmail">
+              Email is invalid<br>
+            </span>
+            <span class="text-danger" *ngIf="(editFormControl.email.touched || submitted) && editFormControl.email.errors?.existingEmail">
+              Email already exists<br>
+            </span>
           </div>
         </div>
+<!-- PASSWORD -->
         <div class="row" style="padding: 0.5em">
           <div class="col-3"><b> Password: </b></div>
           <div class="col-8">
             <input type="password" class="form-control" formControlName="password" value="{{user.password}}" placeholder="**********" id="Password">
+<!-- VALIDATION -->
+            <span class="text-danger" *ngIf="(editFormControl.password.touched || submitted) && editFormControl.password.errors?.required">
+                                Password is required<br>
+            </span>
+            <span class="text-danger" *ngIf="editFormControl.password.touched && editFormControl.password.errors?.invalidPassword">
+                                **********<br>
+            </span>
           </div>
+        </div>
+<!-- CONFIRM PASSWORD -->
+        <div class="row" style="padding: 0.5em">
+          <div class="col-3"><b> Confirm Password: </b></div>
+          <div class="col-8">
+            <input type="password" class="form-control" formControlName="confirmPassword" value="{{user.password}}" placeholder="**********" id="confirmPassword">
+<!-- VALIDATION -->
+            <span class="text-danger" *ngIf="(editFormControl.confirmPassword.touched || submitted)&& editFormControl.confirmPassword.errors?.required">
+              Confirm Password is required<br>
+            </span>
+            <span class="text-danger" *ngIf="editFormControl.confirmPassword.touched && editFormControl.confirmPassword.errors?.passwordMismatch">
+              Passwords does not match<br>
+            </span>
+          </div>
+<!-- SAVE BUTTON -->
           <div class="col-1">
             <input type="button" class="btn btn-outline-danger" value="{{buttonName}}" (click)="onSubmit()">
           </div>
         </div>
+
       </form>
     </div>
   </div>

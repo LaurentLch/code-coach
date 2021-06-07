@@ -16,11 +16,9 @@ export class EditProfileComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', Validators.compose([Validators.required,
-        this.validator.patternValidatorEmail()]),
-        [this.validator.existingEmailValidator()]],
+        this.validator.patternValidatorEmail()])],
       password: ['', Validators.compose([Validators.required,
-        this.validator.patternValidatorPassword(),
-        this.validator.existingEmailValidator()])],
+        this.validator.patternValidatorPassword()])],
       confirmPassword: ['', [Validators.required]],
     },
     {
@@ -53,23 +51,27 @@ export class EditProfileComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.submitted = true;
-    // if (this.editForm.valid) {
-    //   this.userService.editUser(this.id, this.editForm.value).subscribe(data => {
-    //     data = this.editForm;
-    //     console.log('Your registration has been accepted', data);
-    //     // this.editProfile()
-    //   });
-      const partOne = document.getElementById('detailsInPlainText');
-      const partTwo = document.getElementById('detailsInForm');
-
-      // @ts-ignore
-      partOne.style.display = 'block';
-      // @ts-ignore
-      partTwo.style.display = 'none';
-
-      this.buttonName = 'Edit';
-    // }
+    console.log('succes1');
+    this.submitted = true;
+    if (this.editForm.valid) {
+      console.log('succes2')
+      // this.userService.editUser(this.id, this.editForm.value).subscribe(data => {
+      //   data = this.editForm;
+      //   console.log('Your registration has been accepted', data);
+      //   // this.editProfile()
+      // });
+      // const partOne = document.getElementById('detailsInPlainText');
+      // const partTwo = document.getElementById('detailsInForm');
+      //
+      // // @ts-ignore
+      // partOne.style.display = 'block';
+      // // @ts-ignore
+      // partTwo.style.display = 'none';
+      //
+      // this.buttonName = 'Edit';
+    } else {
+      console.log('fail2')
+    }
   }
 
   getUser(): void {
